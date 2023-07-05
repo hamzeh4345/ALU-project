@@ -1,0 +1,13 @@
+module SignDisplay(S,Write,a3,b3,c3,d3,e3,f3,g3);
+input S,Write;
+output a3,b3,c3,d3,e3,f3,g3;
+
+assign a3=1;
+assign b3=1;
+assign c3=1;
+assign d3=1;
+assign e3=1;
+assign f3=1;
+assign g3=~Write ;
+
+endmodule 

@@ -1,0 +1,86 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 4.640 ns
+From           : Clk
+To             : dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118
+From Clock     : --
+To Clock       : Clk
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 14.010 ns
+From           : FourBitReg:comb_5|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112
+To             : g3
+From Clock     : Clk
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case tpd
+Slack          : N/A
+Required Time  : None
+Actual Time    : 7.873 ns
+From           : Write
+To             : a4
+From Clock     : --
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : 2.012 ns
+From           : Clk
+To             : dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118
+From Clock     : --
+To Clock       : Write
+Failed Paths   : 0
+
+Type           : Clock Setup: 'Clk'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 59.96 MHz ( period = 16.678 ns )
+From           : FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112
+To             : dff1:comb_513|SR2:comb_6|andgate:comb_9|out~102
+From Clock     : Clk
+To Clock       : Clk
+Failed Paths   : 0
+
+Type           : Clock Setup: 'Write'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 259.07 MHz ( period = 3.860 ns )
+From           : FourBitReg:comb_509|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~17
+To             : FourBitReg:comb_509|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~90
+From Clock     : Write
+To Clock       : Write
+Failed Paths   : 0
+
+Type           : Clock Setup: 'Read'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 267.24 MHz ( period = 3.742 ns )
+From           : FourBitReg:comb_4|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~83
+To             : FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~120
+From Clock     : Read
+To Clock       : Read
+Failed Paths   : 0
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+--------------------------------------------------------------------------------------
+

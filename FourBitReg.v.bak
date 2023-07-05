@@ -1,0 +1,13 @@
+module FourBitReg (Read,Clk,a0,a1,a2,a3,Reset,q0,q1,q2,q3);
+input Read,Clk,a0,a1,a2,a3,Reset;
+output q0,q1,q2,q3;
+wire w;
+
+andgate(Read,Clk,w);
+dff1(a0,Reset,w,q0);
+dff1(a1,Reset,w,q1);
+dff1(a2,Reset,w,q2);
+dff1(a3,Reset,w,q3);
+
+
+endmodule

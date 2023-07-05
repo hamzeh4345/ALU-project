@@ -1,0 +1,8 @@
+module quadmux(q3,q2,q1,q0,s0,s1,s2,s3,t0,t1,t2,t3,r0,r1,r2,r3);
+input q3,q2,q1,q0,s0,s1,s2,s3,t0,t1,t2,t3;
+output r0,r1,r2,r3;
+Mux (i0,i1,s,out);
+Mux (i0,i1,s,out);
+Mux (i0,i1,s,out);
+Mux (i0,i1,s,out);
+endmodule 

@@ -1,0 +1,772 @@
+Classic Timing Analyzer report for project
+Mon May 17 11:02:13 2021
+Quartus II Version 8.1 Build 163 10/28/2008 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Clock Setup: 'Read'
+  6. Clock Setup: 'Clk'
+  7. Clock Setup: 'Write'
+  8. tsu
+  9. tco
+ 10. tpd
+ 11. th
+ 12. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2008 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                                                                                              ;
++------------------------------+-------+---------------+----------------------------------+------------------------------------------------------------------+------------------------------------------------------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From                                                             ; To                                                               ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+------------------------------------------------------------------+------------------------------------------------------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 4.640 ns                         ; Clk                                                              ; dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118                  ; --         ; Clk      ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 14.010 ns                        ; FourBitReg:comb_5|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; g3                                                               ; Clk        ; --       ; 0            ;
+; Worst-case tpd               ; N/A   ; None          ; 7.873 ns                         ; Write                                                            ; a4                                                               ; --         ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; 2.012 ns                         ; Clk                                                              ; dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118                  ; --         ; Write    ; 0            ;
+; Clock Setup: 'Clk'           ; N/A   ; None          ; 59.96 MHz ( period = 16.678 ns ) ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_513|SR2:comb_6|andgate:comb_9|out~102                  ; Clk        ; Clk      ; 0            ;
+; Clock Setup: 'Write'         ; N/A   ; None          ; 259.07 MHz ( period = 3.860 ns ) ; FourBitReg:comb_509|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~17 ; FourBitReg:comb_509|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~90 ; Write      ; Write    ; 0            ;
+; Clock Setup: 'Read'          ; N/A   ; None          ; 267.24 MHz ( period = 3.742 ns ) ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~83   ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~120  ; Read       ; Read     ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;                                                                  ;                                                                  ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+------------------------------------------------------------------+------------------------------------------------------------------+------------+----------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                           ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                              ; Setting            ; From ; To ; Entity Name ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                         ; EP2C70F896C6       ;      ;    ;             ;
+; Timing Models                                                       ; Final              ;      ;    ;             ;
+; Default hold multicycle                                             ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                           ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                              ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                      ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                    ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                               ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                             ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                    ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                       ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                                   ; 0                  ;      ;    ;             ;
+; Maximum Core Junction Temperature                                   ; 85                 ;      ;    ;             ;
+; Number of source nodes to report per destination node               ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                               ; 10                 ;      ;    ;             ;
+; Number of paths to report                                           ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                        ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                              ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                          ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                        ; On                 ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis      ; Off                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                          ; Near End           ;      ;    ;             ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Read            ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; Clk             ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; Write           ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'Read'                                                                                                                                                                                                                                                                                   ;
++-------+------------------------------------------------+----------------------------------------------------------------+-----------------------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From                                                           ; To                                                              ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+----------------------------------------------------------------+-----------------------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 267.24 MHz ( period = 3.742 ns )               ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~83 ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~120 ; Read       ; Read     ; None                        ; None                      ; 0.404 ns                ;
+; N/A   ; 269.98 MHz ( period = 3.704 ns )               ; FourBitReg:comb_6|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~83 ; FourBitReg:comb_6|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112 ; Read       ; Read     ; None                        ; None                      ; 0.400 ns                ;
+; N/A   ; 276.85 MHz ( period = 3.612 ns )               ; FourBitReg:comb_4|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~83 ; FourBitReg:comb_4|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112 ; Read       ; Read     ; None                        ; None                      ; 0.404 ns                ;
+; N/A   ; 335.80 MHz ( period = 2.978 ns )               ; FourBitReg:comb_5|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~83 ; FourBitReg:comb_5|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112 ; Read       ; Read     ; None                        ; None                      ; 0.400 ns                ;
+; N/A   ; 362.58 MHz ( period = 2.758 ns )               ; FourBitReg:comb_5|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~83 ; FourBitReg:comb_5|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112 ; Read       ; Read     ; None                        ; None                      ; 0.420 ns                ;
+; N/A   ; 363.90 MHz ( period = 2.748 ns )               ; FourBitReg:comb_5|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~83 ; FourBitReg:comb_5|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112 ; Read       ; Read     ; None                        ; None                      ; 0.400 ns                ;
+; N/A   ; 382.85 MHz ( period = 2.612 ns )               ; FourBitReg:comb_6|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~83 ; FourBitReg:comb_6|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112 ; Read       ; Read     ; None                        ; None                      ; 0.402 ns                ;
+; N/A   ; 385.21 MHz ( period = 2.596 ns )               ; FourBitReg:comb_5|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~83 ; FourBitReg:comb_5|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112 ; Read       ; Read     ; None                        ; None                      ; 0.401 ns                ;
+; N/A   ; 389.41 MHz ( period = 2.568 ns )               ; FourBitReg:comb_6|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~83 ; FourBitReg:comb_6|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112 ; Read       ; Read     ; None                        ; None                      ; 0.421 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; FourBitReg:comb_4|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~83 ; FourBitReg:comb_4|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112 ; Read       ; Read     ; None                        ; None                      ; 0.405 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; FourBitReg:comb_4|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~83 ; FourBitReg:comb_4|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112 ; Read       ; Read     ; None                        ; None                      ; 0.404 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~83 ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112 ; Read       ; Read     ; None                        ; None                      ; 0.417 ns                ;
++-------+------------------------------------------------+----------------------------------------------------------------+-----------------------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'Clk'                                                                                                                                                                                                                                                                                       ;
++-------+------------------------------------------------+------------------------------------------------------------------+------------------------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From                                                             ; To                                                               ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+------------------------------------------------------------------+------------------------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 59.96 MHz ( period = 16.678 ns )               ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_513|SR2:comb_6|andgate:comb_9|out~102                  ; Clk        ; Clk      ; None                        ; None                      ; 6.873 ns                ;
+; N/A   ; 61.15 MHz ( period = 16.354 ns )               ; FourBitReg:comb_4|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_513|SR2:comb_6|andgate:comb_9|out~102                  ; Clk        ; Clk      ; None                        ; None                      ; 6.826 ns                ;
+; N/A   ; 62.17 MHz ( period = 16.086 ns )               ; FourBitReg:comb_5|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_513|SR2:comb_6|andgate:comb_9|out~102                  ; Clk        ; Clk      ; None                        ; None                      ; 6.693 ns                ;
+; N/A   ; 63.15 MHz ( period = 15.836 ns )               ; FourBitReg:comb_6|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_513|SR2:comb_6|andgate:comb_9|out~102                  ; Clk        ; Clk      ; None                        ; None                      ; 6.454 ns                ;
+; N/A   ; 63.35 MHz ( period = 15.786 ns )               ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~120  ; dff1:comb_513|SR2:comb_6|andgate:comb_9|out~102                  ; Clk        ; Clk      ; None                        ; None                      ; 6.428 ns                ;
+; N/A   ; 64.23 MHz ( period = 15.570 ns )               ; FourBitReg:comb_5|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_513|SR2:comb_6|andgate:comb_9|out~102                  ; Clk        ; Clk      ; None                        ; None                      ; 6.388 ns                ;
+; N/A   ; 64.57 MHz ( period = 15.486 ns )               ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 6.470 ns                ;
+; N/A   ; 65.04 MHz ( period = 15.376 ns )               ; FourBitReg:comb_5|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_513|SR2:comb_6|andgate:comb_9|out~102                  ; Clk        ; Clk      ; None                        ; None                      ; 6.339 ns                ;
+; N/A   ; 65.37 MHz ( period = 15.298 ns )               ; FourBitReg:comb_6|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_513|SR2:comb_6|andgate:comb_9|out~102                  ; Clk        ; Clk      ; None                        ; None                      ; 6.253 ns                ;
+; N/A   ; 65.95 MHz ( period = 15.162 ns )               ; FourBitReg:comb_4|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 6.423 ns                ;
+; N/A   ; 66.45 MHz ( period = 15.050 ns )               ; FourBitReg:comb_6|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_513|SR2:comb_6|andgate:comb_9|out~102                  ; Clk        ; Clk      ; None                        ; None                      ; 6.200 ns                ;
+; N/A   ; 67.14 MHz ( period = 14.894 ns )               ; FourBitReg:comb_5|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 6.290 ns                ;
+; N/A   ; 68.29 MHz ( period = 14.644 ns )               ; FourBitReg:comb_6|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 6.051 ns                ;
+; N/A   ; 68.52 MHz ( period = 14.594 ns )               ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~120  ; FourBitReg:comb_509|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 6.025 ns                ;
+; N/A   ; 69.55 MHz ( period = 14.378 ns )               ; FourBitReg:comb_5|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 5.985 ns                ;
+; N/A   ; 69.82 MHz ( period = 14.322 ns )               ; FourBitReg:comb_5|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_513|SR2:comb_6|andgate:comb_9|out~102                  ; Clk        ; Clk      ; None                        ; None                      ; 5.728 ns                ;
+; N/A   ; 70.38 MHz ( period = 14.208 ns )               ; FourBitReg:comb_5|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 5.861 ns                ;
+; N/A   ; 70.50 MHz ( period = 14.184 ns )               ; FourBitReg:comb_5|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 5.936 ns                ;
+; N/A   ; 70.89 MHz ( period = 14.106 ns )               ; FourBitReg:comb_6|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 5.850 ns                ;
+; N/A   ; 71.23 MHz ( period = 14.040 ns )               ; FourBitReg:comb_4|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_513|SR2:comb_6|andgate:comb_9|out~102                  ; Clk        ; Clk      ; None                        ; None                      ; 5.621 ns                ;
+; N/A   ; 71.41 MHz ( period = 14.004 ns )               ; FourBitReg:comb_4|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_513|SR2:comb_6|andgate:comb_9|out~102                  ; Clk        ; Clk      ; None                        ; None                      ; 5.566 ns                ;
+; N/A   ; 71.57 MHz ( period = 13.972 ns )               ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 5.664 ns                ;
+; N/A   ; 71.61 MHz ( period = 13.964 ns )               ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~120  ; FourBitReg:comb_509|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 5.671 ns                ;
+; N/A   ; 72.16 MHz ( period = 13.858 ns )               ; FourBitReg:comb_6|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 5.797 ns                ;
+; N/A   ; 72.47 MHz ( period = 13.798 ns )               ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 5.587 ns                ;
+; N/A   ; 73.27 MHz ( period = 13.648 ns )               ; FourBitReg:comb_4|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 5.617 ns                ;
+; N/A   ; 74.74 MHz ( period = 13.380 ns )               ; FourBitReg:comb_5|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 5.484 ns                ;
+; N/A   ; 76.16 MHz ( period = 13.130 ns )               ; FourBitReg:comb_5|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 5.325 ns                ;
+; N/A   ; 76.17 MHz ( period = 13.128 ns )               ; FourBitReg:comb_5|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 5.368 ns                ;
+; N/A   ; 76.45 MHz ( period = 13.080 ns )               ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~120  ; FourBitReg:comb_509|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 5.219 ns                ;
+; N/A   ; 76.82 MHz ( period = 13.018 ns )               ; FourBitReg:comb_5|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 5.256 ns                ;
+; N/A   ; 77.30 MHz ( period = 12.936 ns )               ; FourBitReg:comb_6|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 5.216 ns                ;
+; N/A   ; 77.53 MHz ( period = 12.898 ns )               ; FourBitReg:comb_6|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 5.139 ns                ;
+; N/A   ; 77.83 MHz ( period = 12.848 ns )               ; FourBitReg:comb_4|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 5.218 ns                ;
+; N/A   ; 78.05 MHz ( period = 12.812 ns )               ; FourBitReg:comb_4|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 5.163 ns                ;
+; N/A   ; 78.09 MHz ( period = 12.806 ns )               ; FourBitReg:comb_6|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 5.083 ns                ;
+; N/A   ; 78.93 MHz ( period = 12.670 ns )               ; FourBitReg:comb_5|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 5.130 ns                ;
+; N/A   ; 79.64 MHz ( period = 12.556 ns )               ; FourBitReg:comb_6|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 5.097 ns                ;
+; N/A   ; 80.63 MHz ( period = 12.402 ns )               ; FourBitReg:comb_6|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 4.959 ns                ;
+; N/A   ; 81.17 MHz ( period = 12.320 ns )               ; FourBitReg:comb_4|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 4.963 ns                ;
+; N/A   ; 82.81 MHz ( period = 12.076 ns )               ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118                  ; Clk        ; Clk      ; None                        ; None                      ; 10.700 ns               ;
+; N/A   ; 83.93 MHz ( period = 11.914 ns )               ; FourBitReg:comb_4|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118                  ; Clk        ; Clk      ; None                        ; None                      ; 10.653 ns               ;
+; N/A   ; 84.20 MHz ( period = 11.876 ns )               ; FourBitReg:comb_5|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 4.649 ns                ;
+; N/A   ; 84.70 MHz ( period = 11.806 ns )               ; FourBitReg:comb_6|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 4.732 ns                ;
+; N/A   ; 84.89 MHz ( period = 11.780 ns )               ; FourBitReg:comb_5|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 4.695 ns                ;
+; N/A   ; 84.89 MHz ( period = 11.780 ns )               ; FourBitReg:comb_5|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118                  ; Clk        ; Clk      ; None                        ; None                      ; 10.520 ns               ;
+; N/A   ; 85.98 MHz ( period = 11.630 ns )               ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~120  ; dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118                  ; Clk        ; Clk      ; None                        ; None                      ; 10.255 ns               ;
+; N/A   ; 87.07 MHz ( period = 11.485 ns )               ; FourBitReg:comb_5|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118                  ; Clk        ; Clk      ; None                        ; None                      ; 10.178 ns               ;
+; N/A   ; 87.31 MHz ( period = 11.454 ns )               ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 3.941 ns                ;
+; N/A   ; 87.53 MHz ( period = 11.425 ns )               ; FourBitReg:comb_5|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118                  ; Clk        ; Clk      ; None                        ; None                      ; 10.166 ns               ;
+; N/A   ; 87.75 MHz ( period = 11.396 ns )               ; FourBitReg:comb_6|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 3.982 ns                ;
+; N/A   ; 88.34 MHz ( period = 11.320 ns )               ; FourBitReg:comb_5|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_502|SR2:comb_6|andgate:comb_9|out~65                   ; Clk        ; Clk      ; None                        ; None                      ; 4.629 ns                ;
+; N/A   ; 88.59 MHz ( period = 11.288 ns )               ; FourBitReg:comb_4|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 4.399 ns                ;
+; N/A   ; 88.84 MHz ( period = 11.256 ns )               ; FourBitReg:comb_6|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 3.844 ns                ;
+; N/A   ; 90.29 MHz ( period = 11.076 ns )               ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~120  ; dff1:comb_502|SR2:comb_6|andgate:comb_9|out~65                   ; Clk        ; Clk      ; None                        ; None                      ; 4.439 ns                ;
+; N/A   ; 91.34 MHz ( period = 10.948 ns )               ; FourBitReg:comb_4|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 4.182 ns                ;
+; N/A   ; 91.66 MHz ( period = 10.910 ns )               ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_502|SR2:comb_6|andgate:comb_9|out~65                   ; Clk        ; Clk      ; None                        ; None                      ; 4.355 ns                ;
+; N/A   ; 91.76 MHz ( period = 10.898 ns )               ; FourBitReg:comb_5|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118                  ; Clk        ; Clk      ; None                        ; None                      ; 9.555 ns                ;
+; N/A   ; 93.77 MHz ( period = 10.664 ns )               ; FourBitReg:comb_6|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 3.687 ns                ;
+; N/A   ; 95.46 MHz ( period = 10.476 ns )               ; FourBitReg:comb_5|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 3.959 ns                ;
+; N/A   ; 95.66 MHz ( period = 10.454 ns )               ; FourBitReg:comb_4|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 3.945 ns                ;
+; N/A   ; 96.96 MHz ( period = 10.313 ns )               ; FourBitReg:comb_4|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118                  ; Clk        ; Clk      ; None                        ; None                      ; 9.004 ns                ;
+; N/A   ; 97.22 MHz ( period = 10.286 ns )               ; FourBitReg:comb_5|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 3.473 ns                ;
+; N/A   ; 97.66 MHz ( period = 10.240 ns )               ; FourBitReg:comb_5|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_502|SR2:comb_6|andgate:comb_9|out~65                   ; Clk        ; Clk      ; None                        ; None                      ; 4.136 ns                ;
+; N/A   ; 99.19 MHz ( period = 10.082 ns )               ; FourBitReg:comb_4|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 3.370 ns                ;
+; N/A   ; 100.12 MHz ( period = 9.988 ns )               ; FourBitReg:comb_4|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 3.739 ns                ;
+; N/A   ; 103.41 MHz ( period = 9.670 ns )               ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~120  ; FourBitReg:comb_509|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 3.050 ns                ;
+; N/A   ; 103.73 MHz ( period = 9.640 ns )               ; FourBitReg:comb_5|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 3.103 ns                ;
+; N/A   ; 105.91 MHz ( period = 9.442 ns )               ; FourBitReg:comb_5|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 2.968 ns                ;
+; N/A   ; 106.02 MHz ( period = 9.432 ns )               ; FourBitReg:comb_4|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_502|SR2:comb_6|andgate:comb_9|out~65                   ; Clk        ; Clk      ; None                        ; None                      ; 3.731 ns                ;
+; N/A   ; 111.46 MHz ( period = 8.972 ns )               ; FourBitReg:comb_4|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; FourBitReg:comb_509|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~17 ; Clk        ; Clk      ; None                        ; None                      ; 2.730 ns                ;
+; N/A   ; 117.38 MHz ( period = 8.519 ns )               ; FourBitReg:comb_4|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118                  ; Clk        ; Clk      ; None                        ; None                      ; 7.173 ns                ;
+; N/A   ; 117.54 MHz ( period = 8.508 ns )               ; FourBitReg:comb_5|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_502|SR2:comb_6|andgate:comb_9|out~65                   ; Clk        ; Clk      ; None                        ; None                      ; 3.271 ns                ;
+; N/A   ; 120.63 MHz ( period = 8.290 ns )               ; FourBitReg:comb_4|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_502|SR2:comb_6|andgate:comb_9|out~65                   ; Clk        ; Clk      ; None                        ; None                      ; 3.112 ns                ;
+; N/A   ; 131.79 MHz ( period = 7.588 ns )               ; FourBitReg:comb_5|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_502|SR2:comb_6|andgate:comb_9|out~65                   ; Clk        ; Clk      ; None                        ; None                      ; 2.727 ns                ;
+; N/A   ; 132.17 MHz ( period = 7.566 ns )               ; FourBitReg:comb_4|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_502|SR2:comb_6|andgate:comb_9|out~65                   ; Clk        ; Clk      ; None                        ; None                      ; 2.713 ns                ;
+; N/A   ; 147.54 MHz ( period = 6.778 ns )               ; FourBitReg:comb_6|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_502|SR2:comb_6|andgate:comb_9|out~65                   ; Clk        ; Clk      ; None                        ; None                      ; 2.430 ns                ;
+; N/A   ; 150.51 MHz ( period = 6.644 ns )               ; FourBitReg:comb_6|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118                  ; Clk        ; Clk      ; None                        ; None                      ; 5.338 ns                ;
+; N/A   ; 150.58 MHz ( period = 6.641 ns )               ; FourBitReg:comb_6|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118                  ; Clk        ; Clk      ; None                        ; None                      ; 5.267 ns                ;
+; N/A   ; 157.63 MHz ( period = 6.344 ns )               ; FourBitReg:comb_6|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_502|SR2:comb_6|andgate:comb_9|out~65                   ; Clk        ; Clk      ; None                        ; None                      ; 2.142 ns                ;
+; N/A   ; 162.76 MHz ( period = 6.144 ns )               ; FourBitReg:comb_6|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118                  ; Clk        ; Clk      ; None                        ; None                      ; 4.909 ns                ;
+; N/A   ; 165.84 MHz ( period = 6.030 ns )               ; FourBitReg:comb_6|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; dff1:comb_502|SR2:comb_6|andgate:comb_9|out~65                   ; Clk        ; Clk      ; None                        ; None                      ; 1.917 ns                ;
+; N/A   ; 259.07 MHz ( period = 3.860 ns )               ; FourBitReg:comb_509|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~17 ; FourBitReg:comb_509|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~90 ; Clk        ; Clk      ; None                        ; None                      ; 0.850 ns                ;
+; N/A   ; 262.19 MHz ( period = 3.814 ns )               ; dff1:comb_502|SR2:comb_6|andgate:comb_9|out~65                   ; dff1:comb_502|SR2:comb_7|andgate:comb_9|out~90                   ; Clk        ; Clk      ; None                        ; None                      ; 0.901 ns                ;
+; N/A   ; 267.24 MHz ( period = 3.742 ns )               ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~83   ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~120  ; Clk        ; Clk      ; None                        ; None                      ; 0.404 ns                ;
+; N/A   ; 269.98 MHz ( period = 3.704 ns )               ; FourBitReg:comb_6|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~83   ; FourBitReg:comb_6|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; Clk        ; Clk      ; None                        ; None                      ; 0.400 ns                ;
+; N/A   ; 276.85 MHz ( period = 3.612 ns )               ; FourBitReg:comb_4|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~83   ; FourBitReg:comb_4|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; Clk        ; Clk      ; None                        ; None                      ; 0.404 ns                ;
+; N/A   ; 280.43 MHz ( period = 3.566 ns )               ; FourBitReg:comb_509|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~17 ; FourBitReg:comb_509|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~90 ; Clk        ; Clk      ; None                        ; None                      ; 0.602 ns                ;
+; N/A   ; 315.06 MHz ( period = 3.174 ns )               ; FourBitReg:comb_509|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~17 ; FourBitReg:comb_509|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~98 ; Clk        ; Clk      ; None                        ; None                      ; 0.408 ns                ;
+; N/A   ; 335.80 MHz ( period = 2.978 ns )               ; FourBitReg:comb_5|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~83   ; FourBitReg:comb_5|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; Clk        ; Clk      ; None                        ; None                      ; 0.400 ns                ;
+; N/A   ; 362.58 MHz ( period = 2.758 ns )               ; FourBitReg:comb_5|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~83   ; FourBitReg:comb_5|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; Clk        ; Clk      ; None                        ; None                      ; 0.420 ns                ;
+; N/A   ; 363.90 MHz ( period = 2.748 ns )               ; FourBitReg:comb_5|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~83   ; FourBitReg:comb_5|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; Clk        ; Clk      ; None                        ; None                      ; 0.400 ns                ;
+; N/A   ; 368.73 MHz ( period = 2.712 ns )               ; dff1:comb_513|SR2:comb_6|andgate:comb_9|out~102                  ; dff1:comb_513|SR2:comb_7|andgate:comb_9|out~90                   ; Clk        ; Clk      ; None                        ; None                      ; 0.406 ns                ;
+; N/A   ; 382.85 MHz ( period = 2.612 ns )               ; FourBitReg:comb_6|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~83   ; FourBitReg:comb_6|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; Clk        ; Clk      ; None                        ; None                      ; 0.402 ns                ;
+; N/A   ; 385.21 MHz ( period = 2.596 ns )               ; FourBitReg:comb_5|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~83   ; FourBitReg:comb_5|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; Clk        ; Clk      ; None                        ; None                      ; 0.401 ns                ;
+; N/A   ; 389.41 MHz ( period = 2.568 ns )               ; FourBitReg:comb_6|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~83   ; FourBitReg:comb_6|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; Clk        ; Clk      ; None                        ; None                      ; 0.421 ns                ;
+; N/A   ; 395.26 MHz ( period = 2.530 ns )               ; FourBitReg:comb_509|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~17 ; FourBitReg:comb_509|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~90 ; Clk        ; Clk      ; None                        ; None                      ; 0.403 ns                ;
+; N/A   ; 444.05 MHz ( period = 2.252 ns )               ; FourBitReg:comb_4|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~83   ; FourBitReg:comb_4|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; Clk        ; Clk      ; None                        ; None                      ; 0.405 ns                ;
+; N/A   ; 447.63 MHz ( period = 2.234 ns )               ; FourBitReg:comb_4|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~83   ; FourBitReg:comb_4|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; Clk        ; Clk      ; None                        ; None                      ; 0.404 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~83   ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; Clk        ; Clk      ; None                        ; None                      ; 0.417 ns                ;
++-------+------------------------------------------------+------------------------------------------------------------------+------------------------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'Write'                                                                                                                                                                                                                                                                       ;
++-------+----------------------------------+------------------------------------------------------------------+------------------------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)             ; From                                                             ; To                                                               ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+----------------------------------+------------------------------------------------------------------+------------------------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 259.07 MHz ( period = 3.860 ns ) ; FourBitReg:comb_509|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~17 ; FourBitReg:comb_509|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~90 ; Write      ; Write    ; None                        ; None                      ; 0.850 ns                ;
+; N/A   ; 262.19 MHz ( period = 3.814 ns ) ; dff1:comb_502|SR2:comb_6|andgate:comb_9|out~65                   ; dff1:comb_502|SR2:comb_7|andgate:comb_9|out~90                   ; Write      ; Write    ; None                        ; None                      ; 0.901 ns                ;
+; N/A   ; 280.43 MHz ( period = 3.566 ns ) ; FourBitReg:comb_509|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~17 ; FourBitReg:comb_509|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~90 ; Write      ; Write    ; None                        ; None                      ; 0.602 ns                ;
+; N/A   ; 315.06 MHz ( period = 3.174 ns ) ; FourBitReg:comb_509|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~17 ; FourBitReg:comb_509|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~98 ; Write      ; Write    ; None                        ; None                      ; 0.408 ns                ;
+; N/A   ; 368.73 MHz ( period = 2.712 ns ) ; dff1:comb_513|SR2:comb_6|andgate:comb_9|out~102                  ; dff1:comb_513|SR2:comb_7|andgate:comb_9|out~90                   ; Write      ; Write    ; None                        ; None                      ; 0.406 ns                ;
+; N/A   ; 395.26 MHz ( period = 2.530 ns ) ; FourBitReg:comb_509|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~17 ; FourBitReg:comb_509|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~90 ; Write      ; Write    ; None                        ; None                      ; 0.403 ns                ;
++-------+----------------------------------+------------------------------------------------------------------+------------------------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; tsu                                                                                                                   ;
++-------+--------------+------------+-------+----------------------------------------------------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From  ; To                                                             ; To Clock ;
++-------+--------------+------------+-------+----------------------------------------------------------------+----------+
+; N/A   ; None         ; 4.640 ns   ; Clk   ; dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118                ; Clk      ;
+; N/A   ; None         ; 4.301 ns   ; Clk   ; dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118                ; Write    ;
+; N/A   ; None         ; 2.596 ns   ; M2    ; FourBitReg:comb_6|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~83 ; Read     ;
+; N/A   ; None         ; 2.588 ns   ; Reset ; dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118                ; Clk      ;
+; N/A   ; None         ; 2.581 ns   ; M2    ; FourBitReg:comb_6|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~83 ; Clk      ;
+; N/A   ; None         ; 2.249 ns   ; Reset ; dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118                ; Write    ;
+; N/A   ; None         ; 2.174 ns   ; M3    ; FourBitReg:comb_6|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~83 ; Read     ;
+; N/A   ; None         ; 2.159 ns   ; M3    ; FourBitReg:comb_6|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~83 ; Clk      ;
+; N/A   ; None         ; 1.933 ns   ; M0    ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~83 ; Read     ;
+; N/A   ; None         ; 1.918 ns   ; M0    ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~83 ; Clk      ;
+; N/A   ; None         ; 1.855 ns   ; A0    ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~83 ; Read     ;
+; N/A   ; None         ; 1.840 ns   ; A0    ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~83 ; Clk      ;
+; N/A   ; None         ; 1.796 ns   ; B0    ; FourBitReg:comb_5|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~83 ; Read     ;
+; N/A   ; None         ; 1.781 ns   ; B0    ; FourBitReg:comb_5|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~83 ; Clk      ;
+; N/A   ; None         ; 1.746 ns   ; A3    ; FourBitReg:comb_4|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~83 ; Read     ;
+; N/A   ; None         ; 1.731 ns   ; A3    ; FourBitReg:comb_4|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~83 ; Clk      ;
+; N/A   ; None         ; 1.727 ns   ; A2    ; FourBitReg:comb_4|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~83 ; Read     ;
+; N/A   ; None         ; 1.712 ns   ; A2    ; FourBitReg:comb_4|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~83 ; Clk      ;
+; N/A   ; None         ; 1.667 ns   ; M1    ; FourBitReg:comb_6|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~83 ; Read     ;
+; N/A   ; None         ; 1.652 ns   ; M1    ; FourBitReg:comb_6|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~83 ; Clk      ;
+; N/A   ; None         ; 1.622 ns   ; B2    ; FourBitReg:comb_5|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~83 ; Read     ;
+; N/A   ; None         ; 1.607 ns   ; B2    ; FourBitReg:comb_5|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~83 ; Clk      ;
+; N/A   ; None         ; 1.559 ns   ; B1    ; FourBitReg:comb_5|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~83 ; Read     ;
+; N/A   ; None         ; 1.544 ns   ; B1    ; FourBitReg:comb_5|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~83 ; Clk      ;
+; N/A   ; None         ; 1.541 ns   ; A1    ; FourBitReg:comb_4|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~83 ; Read     ;
+; N/A   ; None         ; 1.526 ns   ; A1    ; FourBitReg:comb_4|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~83 ; Clk      ;
+; N/A   ; None         ; 1.414 ns   ; Write ; dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118                ; Clk      ;
+; N/A   ; None         ; 1.407 ns   ; B3    ; FourBitReg:comb_5|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~83 ; Read     ;
+; N/A   ; None         ; 1.392 ns   ; B3    ; FourBitReg:comb_5|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~83 ; Clk      ;
+; N/A   ; None         ; 1.075 ns   ; Write ; dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118                ; Write    ;
++-------+--------------+------------+-------+----------------------------------------------------------------+----------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; tco                                                                                                                                                                                             ;
++-----------------------------------------+-----------------------------------------------------+------------+------------------------------------------------------------------+----+------------+
+; Slack                                   ; Required tco                                        ; Actual tco ; From                                                             ; To ; From Clock ;
++-----------------------------------------+-----------------------------------------------------+------------+------------------------------------------------------------------+----+------------+
+; N/A                                     ; None                                                ; 14.010 ns  ; FourBitReg:comb_5|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; g3 ; Clk        ;
+; N/A                                     ; None                                                ; 13.995 ns  ; FourBitReg:comb_5|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; g3 ; Read       ;
+; N/A                                     ; None                                                ; 13.888 ns  ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~120  ; g3 ; Clk        ;
+; N/A                                     ; None                                                ; 13.873 ns  ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~120  ; g3 ; Read       ;
+; N/A                                     ; None                                                ; 13.805 ns  ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; g3 ; Clk        ;
+; N/A                                     ; None                                                ; 13.790 ns  ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; g3 ; Read       ;
+; N/A                                     ; None                                                ; 13.470 ns  ; FourBitReg:comb_5|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; g3 ; Clk        ;
+; N/A                                     ; None                                                ; 13.455 ns  ; FourBitReg:comb_5|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; g3 ; Read       ;
+; N/A                                     ; None                                                ; 13.069 ns  ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~120  ; f  ; Clk        ;
+; N/A                                     ; None                                                ; 13.066 ns  ; FourBitReg:comb_4|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; g3 ; Clk        ;
+; N/A                                     ; None                                                ; 13.054 ns  ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~120  ; f  ; Read       ;
+; N/A                                     ; None                                                ; 13.051 ns  ; FourBitReg:comb_4|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; g3 ; Read       ;
+; N/A                                     ; None                                                ; 12.992 ns  ; FourBitReg:comb_4|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; f  ; Clk        ;
+; N/A                                     ; None                                                ; 12.977 ns  ; FourBitReg:comb_4|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; f  ; Read       ;
+; N/A                                     ; None                                                ; 12.892 ns  ; FourBitReg:comb_509|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~98 ; a4 ; Write      ;
+; N/A                                     ; None                                                ; 12.889 ns  ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~120  ; b  ; Clk        ;
+; N/A                                     ; None                                                ; 12.881 ns  ; FourBitReg:comb_6|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; a2 ; Clk        ;
+; N/A                                     ; None                                                ; 12.874 ns  ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~120  ; b  ; Read       ;
+; N/A                                     ; None                                                ; 12.869 ns  ; FourBitReg:comb_6|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; a2 ; Clk        ;
+; N/A                                     ; None                                                ; 12.866 ns  ; FourBitReg:comb_6|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; a2 ; Read       ;
+; N/A                                     ; None                                                ; 12.854 ns  ; FourBitReg:comb_6|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; a2 ; Read       ;
+; N/A                                     ; None                                                ; 12.747 ns  ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; a2 ; Clk        ;
+; N/A                                     ; None                                                ; 12.732 ns  ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; a2 ; Read       ;
+; N/A                                     ; None                                                ; 12.699 ns  ; FourBitReg:comb_6|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; f2 ; Clk        ;
+; N/A                                     ; None                                                ; 12.684 ns  ; FourBitReg:comb_6|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; f2 ; Read       ;
+; N/A                                     ; None                                                ; 12.673 ns  ; FourBitReg:comb_4|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; b  ; Clk        ;
+; N/A                                     ; None                                                ; 12.658 ns  ; FourBitReg:comb_4|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; b  ; Read       ;
+; N/A                                     ; None                                                ; 12.656 ns  ; FourBitReg:comb_6|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; f2 ; Clk        ;
+; N/A                                     ; None                                                ; 12.655 ns  ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; f2 ; Clk        ;
+; N/A                                     ; None                                                ; 12.641 ns  ; FourBitReg:comb_6|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; f2 ; Read       ;
+; N/A                                     ; None                                                ; 12.640 ns  ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; f2 ; Read       ;
+; N/A                                     ; None                                                ; 12.623 ns  ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~120  ; g  ; Clk        ;
+; N/A                                     ; None                                                ; 12.622 ns  ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~120  ; a  ; Clk        ;
+; N/A                                     ; None                                                ; 12.608 ns  ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~120  ; g  ; Read       ;
+; N/A                                     ; None                                                ; 12.607 ns  ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~120  ; a  ; Read       ;
+; N/A                                     ; None                                                ; 12.604 ns  ; FourBitReg:comb_5|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; g3 ; Clk        ;
+; N/A                                     ; None                                                ; 12.589 ns  ; FourBitReg:comb_5|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; g3 ; Read       ;
+; N/A                                     ; None                                                ; 12.553 ns  ; FourBitReg:comb_509|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~98 ; a4 ; Clk        ;
+; N/A                                     ; None                                                ; 12.552 ns  ; FourBitReg:comb_4|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; g  ; Clk        ;
+; N/A                                     ; None                                                ; 12.551 ns  ; FourBitReg:comb_4|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; f  ; Clk        ;
+; N/A                                     ; None                                                ; 12.551 ns  ; FourBitReg:comb_4|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; a  ; Clk        ;
+; N/A                                     ; None                                                ; 12.548 ns  ; FourBitReg:comb_5|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; f1 ; Clk        ;
+; N/A                                     ; None                                                ; 12.537 ns  ; FourBitReg:comb_4|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; g  ; Read       ;
+; N/A                                     ; None                                                ; 12.536 ns  ; FourBitReg:comb_4|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; f  ; Read       ;
+; N/A                                     ; None                                                ; 12.536 ns  ; FourBitReg:comb_4|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; a  ; Read       ;
+; N/A                                     ; None                                                ; 12.533 ns  ; FourBitReg:comb_5|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; f1 ; Read       ;
+; N/A                                     ; None                                                ; 12.532 ns  ; FourBitReg:comb_6|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; d2 ; Clk        ;
+; N/A                                     ; None                                                ; 12.521 ns  ; FourBitReg:comb_509|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~98 ; c4 ; Write      ;
+; N/A                                     ; None                                                ; 12.517 ns  ; FourBitReg:comb_6|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; d2 ; Read       ;
+; N/A                                     ; None                                                ; 12.508 ns  ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~120  ; d  ; Clk        ;
+; N/A                                     ; None                                                ; 12.495 ns  ; FourBitReg:comb_4|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; g3 ; Clk        ;
+; N/A                                     ; None                                                ; 12.493 ns  ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~120  ; d  ; Read       ;
+; N/A                                     ; None                                                ; 12.488 ns  ; FourBitReg:comb_6|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; d2 ; Clk        ;
+; N/A                                     ; None                                                ; 12.486 ns  ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; d2 ; Clk        ;
+; N/A                                     ; None                                                ; 12.484 ns  ; FourBitReg:comb_6|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; a2 ; Clk        ;
+; N/A                                     ; None                                                ; 12.480 ns  ; FourBitReg:comb_4|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; g3 ; Read       ;
+; N/A                                     ; None                                                ; 12.473 ns  ; FourBitReg:comb_6|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; d2 ; Read       ;
+; N/A                                     ; None                                                ; 12.471 ns  ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; d2 ; Read       ;
+; N/A                                     ; None                                                ; 12.469 ns  ; FourBitReg:comb_6|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; a2 ; Read       ;
+; N/A                                     ; None                                                ; 12.437 ns  ; FourBitReg:comb_4|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; d  ; Clk        ;
+; N/A                                     ; None                                                ; 12.430 ns  ; FourBitReg:comb_509|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~90 ; a4 ; Write      ;
+; N/A                                     ; None                                                ; 12.422 ns  ; FourBitReg:comb_4|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; d  ; Read       ;
+; N/A                                     ; None                                                ; 12.347 ns  ; FourBitReg:comb_509|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~98 ; f4 ; Write      ;
+; N/A                                     ; None                                                ; 12.331 ns  ; FourBitReg:comb_5|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; d1 ; Clk        ;
+; N/A                                     ; None                                                ; 12.327 ns  ; FourBitReg:comb_509|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~98 ; e4 ; Write      ;
+; N/A                                     ; None                                                ; 12.323 ns  ; FourBitReg:comb_4|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; f  ; Clk        ;
+; N/A                                     ; None                                                ; 12.316 ns  ; FourBitReg:comb_5|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; d1 ; Read       ;
+; N/A                                     ; None                                                ; 12.315 ns  ; FourBitReg:comb_5|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; a1 ; Clk        ;
+; N/A                                     ; None                                                ; 12.308 ns  ; FourBitReg:comb_4|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; f  ; Read       ;
+; N/A                                     ; None                                                ; 12.307 ns  ; FourBitReg:comb_5|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; c1 ; Clk        ;
+; N/A                                     ; None                                                ; 12.304 ns  ; FourBitReg:comb_6|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; e2 ; Clk        ;
+; N/A                                     ; None                                                ; 12.300 ns  ; FourBitReg:comb_5|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; a1 ; Read       ;
+; N/A                                     ; None                                                ; 12.295 ns  ; FourBitReg:comb_5|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; f1 ; Clk        ;
+; N/A                                     ; None                                                ; 12.293 ns  ; FourBitReg:comb_509|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~90 ; c4 ; Write      ;
+; N/A                                     ; None                                                ; 12.292 ns  ; FourBitReg:comb_5|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; c1 ; Read       ;
+; N/A                                     ; None                                                ; 12.289 ns  ; FourBitReg:comb_6|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; e2 ; Read       ;
+; N/A                                     ; None                                                ; 12.280 ns  ; FourBitReg:comb_5|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; f1 ; Read       ;
+; N/A                                     ; None                                                ; 12.263 ns  ; FourBitReg:comb_509|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~98 ; b4 ; Write      ;
+; N/A                                     ; None                                                ; 12.262 ns  ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; e2 ; Clk        ;
+; N/A                                     ; None                                                ; 12.260 ns  ; FourBitReg:comb_6|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; b2 ; Clk        ;
+; N/A                                     ; None                                                ; 12.249 ns  ; FourBitReg:comb_6|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; e2 ; Clk        ;
+; N/A                                     ; None                                                ; 12.247 ns  ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; e2 ; Read       ;
+; N/A                                     ; None                                                ; 12.245 ns  ; FourBitReg:comb_6|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; b2 ; Read       ;
+; N/A                                     ; None                                                ; 12.234 ns  ; FourBitReg:comb_6|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; e2 ; Read       ;
+; N/A                                     ; None                                                ; 12.221 ns  ; FourBitReg:comb_6|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; b2 ; Clk        ;
+; N/A                                     ; None                                                ; 12.206 ns  ; FourBitReg:comb_6|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; b2 ; Read       ;
+; N/A                                     ; None                                                ; 12.202 ns  ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; c2 ; Clk        ;
+; N/A                                     ; None                                                ; 12.195 ns  ; FourBitReg:comb_5|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; f1 ; Clk        ;
+; N/A                                     ; None                                                ; 12.194 ns  ; FourBitReg:comb_6|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; f2 ; Clk        ;
+; N/A                                     ; None                                                ; 12.187 ns  ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; c2 ; Read       ;
+; N/A                                     ; None                                                ; 12.182 ns  ; FourBitReg:comb_509|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~98 ; c4 ; Clk        ;
+; N/A                                     ; None                                                ; 12.180 ns  ; FourBitReg:comb_5|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; f1 ; Read       ;
+; N/A                                     ; None                                                ; 12.179 ns  ; FourBitReg:comb_6|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; f2 ; Read       ;
+; N/A                                     ; None                                                ; 12.167 ns  ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~120  ; c  ; Clk        ;
+; N/A                                     ; None                                                ; 12.160 ns  ; FourBitReg:comb_509|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~98 ; d4 ; Write      ;
+; N/A                                     ; None                                                ; 12.152 ns  ; FourBitReg:comb_509|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~90 ; a4 ; Write      ;
+; N/A                                     ; None                                                ; 12.152 ns  ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~120  ; c  ; Read       ;
+; N/A                                     ; None                                                ; 12.144 ns  ; FourBitReg:comb_5|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; g3 ; Clk        ;
+; N/A                                     ; None                                                ; 12.133 ns  ; FourBitReg:comb_4|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; g3 ; Clk        ;
+; N/A                                     ; None                                                ; 12.129 ns  ; FourBitReg:comb_5|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; g3 ; Read       ;
+; N/A                                     ; None                                                ; 12.123 ns  ; FourBitReg:comb_509|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~90 ; f4 ; Write      ;
+; N/A                                     ; None                                                ; 12.118 ns  ; FourBitReg:comb_4|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; g3 ; Read       ;
+; N/A                                     ; None                                                ; 12.107 ns  ; FourBitReg:comb_4|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; g  ; Clk        ;
+; N/A                                     ; None                                                ; 12.104 ns  ; FourBitReg:comb_509|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~90 ; e4 ; Write      ;
+; N/A                                     ; None                                                ; 12.102 ns  ; FourBitReg:comb_5|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; g1 ; Clk        ;
+; N/A                                     ; None                                                ; 12.098 ns  ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; b2 ; Clk        ;
+; N/A                                     ; None                                                ; 12.092 ns  ; FourBitReg:comb_4|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; g  ; Read       ;
+; N/A                                     ; None                                                ; 12.092 ns  ; FourBitReg:comb_4|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; c  ; Clk        ;
+; N/A                                     ; None                                                ; 12.091 ns  ; FourBitReg:comb_509|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~90 ; a4 ; Clk        ;
+; N/A                                     ; None                                                ; 12.090 ns  ; FourBitReg:comb_5|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; f1 ; Clk        ;
+; N/A                                     ; None                                                ; 12.087 ns  ; FourBitReg:comb_5|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; g1 ; Read       ;
+; N/A                                     ; None                                                ; 12.083 ns  ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; b2 ; Read       ;
+; N/A                                     ; None                                                ; 12.082 ns  ; FourBitReg:comb_5|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; d1 ; Clk        ;
+; N/A                                     ; None                                                ; 12.077 ns  ; FourBitReg:comb_4|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; c  ; Read       ;
+; N/A                                     ; None                                                ; 12.075 ns  ; FourBitReg:comb_5|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; f1 ; Read       ;
+; N/A                                     ; None                                                ; 12.073 ns  ; FourBitReg:comb_509|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~90 ; c4 ; Write      ;
+; N/A                                     ; None                                                ; 12.067 ns  ; FourBitReg:comb_5|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; d1 ; Read       ;
+; N/A                                     ; None                                                ; 12.061 ns  ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~120  ; e  ; Clk        ;
+; N/A                                     ; None                                                ; 12.056 ns  ; FourBitReg:comb_5|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; c1 ; Clk        ;
+; N/A                                     ; None                                                ; 12.050 ns  ; FourBitReg:comb_5|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; a1 ; Clk        ;
+; N/A                                     ; None                                                ; 12.046 ns  ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~120  ; e  ; Read       ;
+; N/A                                     ; None                                                ; 12.041 ns  ; FourBitReg:comb_5|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; c1 ; Read       ;
+; N/A                                     ; None                                                ; 12.039 ns  ; FourBitReg:comb_509|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~90 ; b4 ; Write      ;
+; N/A                                     ; None                                                ; 12.035 ns  ; FourBitReg:comb_5|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; a1 ; Read       ;
+; N/A                                     ; None                                                ; 12.029 ns  ; FourBitReg:comb_6|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; d2 ; Clk        ;
+; N/A                                     ; None                                                ; 12.014 ns  ; FourBitReg:comb_6|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; d2 ; Read       ;
+; N/A                                     ; None                                                ; 12.008 ns  ; FourBitReg:comb_509|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~98 ; f4 ; Clk        ;
+; N/A                                     ; None                                                ; 11.995 ns  ; FourBitReg:comb_509|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~90 ; a4 ; Write      ;
+; N/A                                     ; None                                                ; 11.990 ns  ; FourBitReg:comb_4|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; e  ; Clk        ;
+; N/A                                     ; None                                                ; 11.990 ns  ; FourBitReg:comb_4|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; d  ; Clk        ;
+; N/A                                     ; None                                                ; 11.988 ns  ; FourBitReg:comb_509|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~98 ; e4 ; Clk        ;
+; N/A                                     ; None                                                ; 11.985 ns  ; FourBitReg:comb_5|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; d1 ; Clk        ;
+; N/A                                     ; None                                                ; 11.975 ns  ; FourBitReg:comb_4|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; e  ; Read       ;
+; N/A                                     ; None                                                ; 11.975 ns  ; FourBitReg:comb_4|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; d  ; Read       ;
+; N/A                                     ; None                                                ; 11.975 ns  ; FourBitReg:comb_4|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; b  ; Clk        ;
+; N/A                                     ; None                                                ; 11.970 ns  ; FourBitReg:comb_5|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; d1 ; Read       ;
+; N/A                                     ; None                                                ; 11.960 ns  ; FourBitReg:comb_4|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; b  ; Read       ;
+; N/A                                     ; None                                                ; 11.954 ns  ; FourBitReg:comb_509|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~90 ; c4 ; Clk        ;
+; N/A                                     ; None                                                ; 11.938 ns  ; FourBitReg:comb_509|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~90 ; d4 ; Write      ;
+; N/A                                     ; None                                                ; 11.938 ns  ; FourBitReg:comb_5|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; c1 ; Clk        ;
+; N/A                                     ; None                                                ; 11.938 ns  ; FourBitReg:comb_4|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; b  ; Clk        ;
+; N/A                                     ; None                                                ; 11.924 ns  ; FourBitReg:comb_509|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~98 ; b4 ; Clk        ;
+; N/A                                     ; None                                                ; 11.923 ns  ; FourBitReg:comb_5|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; c1 ; Read       ;
+; N/A                                     ; None                                                ; 11.923 ns  ; FourBitReg:comb_4|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; b  ; Read       ;
+; N/A                                     ; None                                                ; 11.885 ns  ; FourBitReg:comb_509|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~90 ; f4 ; Write      ;
+; N/A                                     ; None                                                ; 11.884 ns  ; FourBitReg:comb_4|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; g  ; Clk        ;
+; N/A                                     ; None                                                ; 11.877 ns  ; FourBitReg:comb_5|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; d1 ; Clk        ;
+; N/A                                     ; None                                                ; 11.869 ns  ; FourBitReg:comb_4|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; g  ; Read       ;
+; N/A                                     ; None                                                ; 11.867 ns  ; FourBitReg:comb_509|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~90 ; e4 ; Write      ;
+; N/A                                     ; None                                                ; 11.862 ns  ; FourBitReg:comb_5|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; d1 ; Read       ;
+; N/A                                     ; None                                                ; 11.856 ns  ; FourBitReg:comb_4|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; a  ; Clk        ;
+; N/A                                     ; None                                                ; 11.855 ns  ; FourBitReg:comb_5|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; c1 ; Clk        ;
+; N/A                                     ; None                                                ; 11.850 ns  ; FourBitReg:comb_5|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; g1 ; Clk        ;
+; N/A                                     ; None                                                ; 11.849 ns  ; FourBitReg:comb_5|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; a1 ; Clk        ;
+; N/A                                     ; None                                                ; 11.841 ns  ; FourBitReg:comb_4|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; a  ; Read       ;
+; N/A                                     ; None                                                ; 11.840 ns  ; FourBitReg:comb_5|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; c1 ; Read       ;
+; N/A                                     ; None                                                ; 11.835 ns  ; FourBitReg:comb_5|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; g1 ; Read       ;
+; N/A                                     ; None                                                ; 11.834 ns  ; FourBitReg:comb_5|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; a1 ; Read       ;
+; N/A                                     ; None                                                ; 11.832 ns  ; FourBitReg:comb_6|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; b2 ; Clk        ;
+; N/A                                     ; None                                                ; 11.821 ns  ; FourBitReg:comb_509|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~98 ; d4 ; Clk        ;
+; N/A                                     ; None                                                ; 11.817 ns  ; FourBitReg:comb_509|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~90 ; b4 ; Write      ;
+; N/A                                     ; None                                                ; 11.817 ns  ; FourBitReg:comb_6|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; b2 ; Read       ;
+; N/A                                     ; None                                                ; 11.813 ns  ; FourBitReg:comb_509|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~90 ; a4 ; Clk        ;
+; N/A                                     ; None                                                ; 11.804 ns  ; FourBitReg:comb_6|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; e2 ; Clk        ;
+; N/A                                     ; None                                                ; 11.791 ns  ; FourBitReg:comb_509|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~98 ; g4 ; Write      ;
+; N/A                                     ; None                                                ; 11.789 ns  ; FourBitReg:comb_6|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; e2 ; Read       ;
+; N/A                                     ; None                                                ; 11.784 ns  ; FourBitReg:comb_509|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~90 ; f4 ; Clk        ;
+; N/A                                     ; None                                                ; 11.769 ns  ; FourBitReg:comb_4|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; d  ; Clk        ;
+; N/A                                     ; None                                                ; 11.765 ns  ; FourBitReg:comb_509|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~90 ; e4 ; Clk        ;
+; N/A                                     ; None                                                ; 11.759 ns  ; FourBitReg:comb_509|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~90 ; c4 ; Write      ;
+; N/A                                     ; None                                                ; 11.754 ns  ; FourBitReg:comb_4|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; d  ; Read       ;
+; N/A                                     ; None                                                ; 11.751 ns  ; FourBitReg:comb_5|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; g1 ; Clk        ;
+; N/A                                     ; None                                                ; 11.736 ns  ; FourBitReg:comb_5|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; g1 ; Read       ;
+; N/A                                     ; None                                                ; 11.734 ns  ; FourBitReg:comb_509|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~90 ; c4 ; Clk        ;
+; N/A                                     ; None                                                ; 11.717 ns  ; FourBitReg:comb_4|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; a  ; Clk        ;
+; N/A                                     ; None                                                ; 11.710 ns  ; FourBitReg:comb_6|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; g2 ; Clk        ;
+; N/A                                     ; None                                                ; 11.702 ns  ; FourBitReg:comb_509|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~90 ; d4 ; Write      ;
+; N/A                                     ; None                                                ; 11.702 ns  ; FourBitReg:comb_4|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; a  ; Read       ;
+; N/A                                     ; None                                                ; 11.700 ns  ; FourBitReg:comb_509|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~90 ; b4 ; Clk        ;
+; N/A                                     ; None                                                ; 11.695 ns  ; FourBitReg:comb_6|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; g2 ; Read       ;
+; N/A                                     ; None                                                ; 11.666 ns  ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; g2 ; Clk        ;
+; N/A                                     ; None                                                ; 11.657 ns  ; FourBitReg:comb_6|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; g2 ; Clk        ;
+; N/A                                     ; None                                                ; 11.657 ns  ; FourBitReg:comb_5|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; e1 ; Clk        ;
+; N/A                                     ; None                                                ; 11.656 ns  ; FourBitReg:comb_509|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~90 ; a4 ; Clk        ;
+; N/A                                     ; None                                                ; 11.651 ns  ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112  ; g2 ; Read       ;
+; N/A                                     ; None                                                ; 11.651 ns  ; FourBitReg:comb_4|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; c  ; Clk        ;
+; N/A                                     ; None                                                ; 11.646 ns  ; FourBitReg:comb_5|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; g1 ; Clk        ;
+; N/A                                     ; None                                                ; 11.642 ns  ; FourBitReg:comb_6|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; g2 ; Read       ;
+; N/A                                     ; None                                                ; 11.642 ns  ; FourBitReg:comb_5|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; e1 ; Read       ;
+; N/A                                     ; None                                                ; 11.640 ns  ; FourBitReg:comb_5|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; b1 ; Clk        ;
+; N/A                                     ; None                                                ; 11.636 ns  ; FourBitReg:comb_6|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; c2 ; Clk        ;
+; N/A                                     ; None                                                ; 11.636 ns  ; FourBitReg:comb_4|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112  ; c  ; Read       ;
+; N/A                                     ; None                                                ; 11.634 ns  ; FourBitReg:comb_6|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; c2 ; Clk        ;
+; N/A                                     ; None                                                ; 11.631 ns  ; FourBitReg:comb_5|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; g1 ; Read       ;
+; N/A                                     ; None                                                ; 11.625 ns  ; FourBitReg:comb_5|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; b1 ; Read       ;
+; N/A                                     ; None                                                ; 11.621 ns  ; FourBitReg:comb_6|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112  ; c2 ; Read       ;
+; N/A                                     ; None                                                ; 11.619 ns  ; FourBitReg:comb_6|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112  ; c2 ; Read       ;
+; N/A                                     ; None                                                ; 11.599 ns  ; FourBitReg:comb_509|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~90 ; d4 ; Clk        ;
+; N/A                                     ; None                                                ; 11.589 ns  ; FourBitReg:comb_509|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~90 ; e4 ; Write      ;
+; N/A                                     ; None                                                ; 11.576 ns  ; FourBitReg:comb_509|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~90 ; f4 ; Write      ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;            ;                                                                  ;    ;            ;
++-----------------------------------------+-----------------------------------------------------+------------+------------------------------------------------------------------+----+------------+
+
+
++----------------------------------------------------------+
+; tpd                                                      ;
++-------+-------------------+-----------------+-------+----+
+; Slack ; Required P2P Time ; Actual P2P Time ; From  ; To ;
++-------+-------------------+-----------------+-------+----+
+; N/A   ; None              ; 7.873 ns        ; Write ; a4 ;
+; N/A   ; None              ; 7.673 ns        ; Write ; c4 ;
+; N/A   ; None              ; 7.576 ns        ; Read  ; f  ;
+; N/A   ; None              ; 7.501 ns        ; Write ; f4 ;
+; N/A   ; None              ; 7.485 ns        ; Write ; e4 ;
+; N/A   ; None              ; 7.427 ns        ; Write ; b4 ;
+; N/A   ; None              ; 7.397 ns        ; Write ; d4 ;
+; N/A   ; None              ; 7.234 ns        ; Read  ; a  ;
+; N/A   ; None              ; 7.226 ns        ; Read  ; a2 ;
+; N/A   ; None              ; 7.212 ns        ; Read  ; g  ;
+; N/A   ; None              ; 7.092 ns        ; Read  ; f1 ;
+; N/A   ; None              ; 7.011 ns        ; Read  ; d  ;
+; N/A   ; None              ; 6.994 ns        ; Read  ; a1 ;
+; N/A   ; None              ; 6.945 ns        ; Write ; g4 ;
+; N/A   ; None              ; 6.884 ns        ; Read  ; d1 ;
+; N/A   ; None              ; 6.854 ns        ; Write ; g3 ;
+; N/A   ; None              ; 6.852 ns        ; Read  ; c1 ;
+; N/A   ; None              ; 6.800 ns        ; Read  ; f2 ;
+; N/A   ; None              ; 6.799 ns        ; Read  ; c2 ;
+; N/A   ; None              ; 6.754 ns        ; Read  ; c  ;
+; N/A   ; None              ; 6.668 ns        ; Read  ; g2 ;
+; N/A   ; None              ; 6.655 ns        ; Read  ; g1 ;
+; N/A   ; None              ; 6.619 ns        ; Read  ; b  ;
+; N/A   ; None              ; 6.576 ns        ; Read  ; d2 ;
+; N/A   ; None              ; 6.564 ns        ; Read  ; e  ;
+; N/A   ; None              ; 6.350 ns        ; Read  ; e2 ;
+; N/A   ; None              ; 6.202 ns        ; Read  ; e1 ;
+; N/A   ; None              ; 6.185 ns        ; Read  ; b1 ;
+; N/A   ; None              ; 6.139 ns        ; Read  ; b2 ;
++-------+-------------------+-----------------+-------+----+
+
+
++-----------------------------------------------------------------------------------------------------------------------------+
+; th                                                                                                                          ;
++---------------+-------------+-----------+-------+----------------------------------------------------------------+----------+
+; Minimum Slack ; Required th ; Actual th ; From  ; To                                                             ; To Clock ;
++---------------+-------------+-----------+-------+----------------------------------------------------------------+----------+
+; N/A           ; None        ; 2.012 ns  ; Clk   ; dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118                ; Write    ;
+; N/A           ; None        ; 1.673 ns  ; Write ; dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118                ; Write    ;
+; N/A           ; None        ; 1.673 ns  ; Clk   ; dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118                ; Clk      ;
+; N/A           ; None        ; 1.334 ns  ; Write ; dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118                ; Clk      ;
+; N/A           ; None        ; -0.397 ns ; M1    ; FourBitReg:comb_6|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~83 ; Clk      ;
+; N/A           ; None        ; -0.412 ns ; M1    ; FourBitReg:comb_6|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~83 ; Read     ;
+; N/A           ; None        ; -0.422 ns ; B2    ; FourBitReg:comb_5|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~83 ; Clk      ;
+; N/A           ; None        ; -0.437 ns ; B2    ; FourBitReg:comb_5|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~83 ; Read     ;
+; N/A           ; None        ; -0.472 ns ; A2    ; FourBitReg:comb_4|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~83 ; Clk      ;
+; N/A           ; None        ; -0.487 ns ; A2    ; FourBitReg:comb_4|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~83 ; Read     ;
+; N/A           ; None        ; -0.521 ns ; B3    ; FourBitReg:comb_5|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~83 ; Clk      ;
+; N/A           ; None        ; -0.536 ns ; B3    ; FourBitReg:comb_5|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~83 ; Read     ;
+; N/A           ; None        ; -0.583 ns ; B1    ; FourBitReg:comb_5|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~83 ; Clk      ;
+; N/A           ; None        ; -0.598 ns ; B1    ; FourBitReg:comb_5|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~83 ; Read     ;
+; N/A           ; None        ; -0.670 ns ; B0    ; FourBitReg:comb_5|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~83 ; Clk      ;
+; N/A           ; None        ; -0.685 ns ; B0    ; FourBitReg:comb_5|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~83 ; Read     ;
+; N/A           ; None        ; -0.743 ns ; M3    ; FourBitReg:comb_6|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~83 ; Clk      ;
+; N/A           ; None        ; -0.758 ns ; M3    ; FourBitReg:comb_6|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~83 ; Read     ;
+; N/A           ; None        ; -0.795 ns ; A0    ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~83 ; Clk      ;
+; N/A           ; None        ; -0.810 ns ; A0    ; FourBitReg:comb_4|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~83 ; Read     ;
+; N/A           ; None        ; -0.853 ns ; A1    ; FourBitReg:comb_4|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~83 ; Clk      ;
+; N/A           ; None        ; -0.868 ns ; A1    ; FourBitReg:comb_4|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~83 ; Read     ;
+; N/A           ; None        ; -0.908 ns ; A3    ; FourBitReg:comb_4|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~83 ; Clk      ;
+; N/A           ; None        ; -0.923 ns ; A3    ; FourBitReg:comb_4|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~83 ; Read     ;
+; N/A           ; None        ; -1.078 ns ; M0    ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~83 ; Clk      ;
+; N/A           ; None        ; -1.093 ns ; M0    ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~83 ; Read     ;
+; N/A           ; None        ; -1.342 ns ; M2    ; FourBitReg:comb_6|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~83 ; Clk      ;
+; N/A           ; None        ; -1.357 ns ; M2    ; FourBitReg:comb_6|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~83 ; Read     ;
+; N/A           ; None        ; -1.385 ns ; Reset ; dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118                ; Write    ;
+; N/A           ; None        ; -1.724 ns ; Reset ; dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118                ; Clk      ;
++---------------+-------------+-----------+-------+----------------------------------------------------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 8.1 Build 163 10/28/2008 SJ Web Edition
+    Info: Processing started: Mon May 17 11:02:13 2021
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off project -c project --timing_analysis_only
+Warning: Timing Analysis is analyzing one or more combinational loops as latches
+    Warning: Node "FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~120" is a latch
+    Warning: Node "FourBitReg:comb_4|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112" is a latch
+    Warning: Node "FourBitReg:comb_4|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112" is a latch
+    Warning: Node "FourBitReg:comb_4|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~83" is a latch
+    Warning: Node "FourBitReg:comb_4|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~83" is a latch
+    Warning: Node "FourBitReg:comb_4|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~83" is a latch
+    Warning: Node "FourBitReg:comb_4|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112" is a latch
+    Warning: Node "FourBitReg:comb_4|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~83" is a latch
+    Warning: Node "FourBitReg:comb_5|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112" is a latch
+    Warning: Node "FourBitReg:comb_5|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112" is a latch
+    Warning: Node "FourBitReg:comb_5|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112" is a latch
+    Warning: Node "FourBitReg:comb_5|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~83" is a latch
+    Warning: Node "FourBitReg:comb_5|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~83" is a latch
+    Warning: Node "FourBitReg:comb_5|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~83" is a latch
+    Warning: Node "FourBitReg:comb_5|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112" is a latch
+    Warning: Node "FourBitReg:comb_5|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~83" is a latch
+    Warning: Node "FourBitReg:comb_6|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~112" is a latch
+    Warning: Node "FourBitReg:comb_6|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~112" is a latch
+    Warning: Node "FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112" is a latch
+    Warning: Node "FourBitReg:comb_6|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~112" is a latch
+    Warning: Node "FourBitReg:comb_6|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~83" is a latch
+    Warning: Node "FourBitReg:comb_6|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~83" is a latch
+    Warning: Node "FourBitReg:comb_6|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~83" is a latch
+    Warning: Node "FourBitReg:comb_6|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~83" is a latch
+    Warning: Node "FourBitReg:comb_509|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~98" is a latch
+    Warning: Node "FourBitReg:comb_509|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~90" is a latch
+    Warning: Node "FourBitReg:comb_509|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~90" is a latch
+    Warning: Node "FourBitReg:comb_509|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~17" is a latch
+    Warning: Node "FourBitReg:comb_509|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~17" is a latch
+    Warning: Node "FourBitReg:comb_509|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~17" is a latch
+    Warning: Node "FourBitReg:comb_509|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~90" is a latch
+    Warning: Node "FourBitReg:comb_509|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~17" is a latch
+    Warning: Node "dff1:comb_502|SR2:comb_7|andgate:comb_9|out~90" is a latch
+    Warning: Node "dff1:comb_502|SR2:comb_6|andgate:comb_9|out~65" is a latch
+    Warning: Node "dff1:comb_513|SR2:comb_7|andgate:comb_9|out~90" is a latch
+    Warning: Node "dff1:comb_513|SR2:comb_6|andgate:comb_9|out~102" is a latch
+    Warning: Node "dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118" is a latch
+Warning: Found combinational loop of 2 nodes
+    Warning: Node "dff1:comb_966|SR2:comb_6|andgate:comb_9|out~311"
+    Warning: Node "dff1:comb_966|SR2:comb_6|andgate:comb_9|out~312"
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "Read" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+    Info: Assuming node "Clk" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+    Info: Assuming node "Write" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+Warning: Found 2 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected gated clock "FourBitReg:comb_509|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~97" as buffer
+    Info: Detected gated clock "FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~119" as buffer
+Info: Clock "Read" has Internal fmax of 267.24 MHz between source register "FourBitReg:comb_4|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~83" and destination register "FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~120" (period= 3.742 ns)
+    Info: + Longest register to register delay is 0.404 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCCOMB_X56_Y46_N18; Fanout = 1; REG Node = 'FourBitReg:comb_4|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~83'
+        Info: 2: + IC(0.254 ns) + CELL(0.150 ns) = 0.404 ns; Loc. = LCCOMB_X56_Y46_N26; Fanout = 22; REG Node = 'FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~120'
+        Info: Total cell delay = 0.150 ns ( 37.13 % )
+        Info: Total interconnect delay = 0.254 ns ( 62.87 % )
+    Info: - Smallest clock skew is 0.241 ns
+        Info: + Shortest clock path from clock "Read" to destination register is 6.076 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.959 ns) = 0.959 ns; Loc. = PIN_G15; Fanout = 22; CLK Node = 'Read'
+            Info: 2: + IC(1.432 ns) + CELL(0.150 ns) = 2.541 ns; Loc. = LCCOMB_X56_Y45_N6; Fanout = 1; COMB Node = 'FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~119'
+            Info: 3: + IC(1.523 ns) + CELL(0.000 ns) = 4.064 ns; Loc. = CLKCTRL_G11; Fanout = 24; COMB Node = 'FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~119clkctrl'
+            Info: 4: + IC(1.623 ns) + CELL(0.389 ns) = 6.076 ns; Loc. = LCCOMB_X56_Y46_N26; Fanout = 22; REG Node = 'FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~120'
+            Info: Total cell delay = 1.498 ns ( 24.65 % )
+            Info: Total interconnect delay = 4.578 ns ( 75.35 % )
+        Info: - Longest clock path from clock "Read" to source register is 5.835 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.959 ns) = 0.959 ns; Loc. = PIN_G15; Fanout = 22; CLK Node = 'Read'
+            Info: 2: + IC(1.432 ns) + CELL(0.150 ns) = 2.541 ns; Loc. = LCCOMB_X56_Y45_N6; Fanout = 1; COMB Node = 'FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~119'
+            Info: 3: + IC(1.523 ns) + CELL(0.000 ns) = 4.064 ns; Loc. = CLKCTRL_G11; Fanout = 24; COMB Node = 'FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~119clkctrl'
+            Info: 4: + IC(1.621 ns) + CELL(0.150 ns) = 5.835 ns; Loc. = LCCOMB_X56_Y46_N18; Fanout = 1; REG Node = 'FourBitReg:comb_4|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~83'
+            Info: Total cell delay = 1.259 ns ( 21.58 % )
+            Info: Total interconnect delay = 4.576 ns ( 78.42 % )
+    Info: + Micro clock to output delay of source is 0.000 ns
+    Info: + Micro setup delay of destination is 1.708 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Info: Clock "Clk" has Internal fmax of 59.96 MHz between source register "FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112" and destination register "dff1:comb_513|SR2:comb_6|andgate:comb_9|out~102" (period= 16.678 ns)
+    Info: + Longest register to register delay is 6.873 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCCOMB_X56_Y46_N20; Fanout = 63; REG Node = 'FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112'
+        Info: 2: + IC(0.514 ns) + CELL(0.275 ns) = 0.789 ns; Loc. = LCCOMB_X57_Y46_N8; Fanout = 2; COMB Node = 'multiplier:comb_19|FourBitAdderSubtractor:comb_12|xorgate:comb_5|out'
+        Info: 3: + IC(0.701 ns) + CELL(0.438 ns) = 1.928 ns; Loc. = LCCOMB_X56_Y46_N4; Fanout = 2; COMB Node = 'multiplier:comb_19|FourBitAdderSubtractor:comb_12|FA:comb_9|Cout~7'
+        Info: 4: + IC(0.255 ns) + CELL(0.275 ns) = 2.458 ns; Loc. = LCCOMB_X56_Y46_N14; Fanout = 8; COMB Node = 'multiplier:comb_19|FourBitAdderSubtractor:comb_12|FA:comb_10|Cout~7'
+        Info: 5: + IC(0.406 ns) + CELL(0.150 ns) = 3.014 ns; Loc. = LCCOMB_X57_Y46_N2; Fanout = 2; COMB Node = 'multiplier:comb_19|FourBitAdderSubtractor:comb_17|FA:comb_8|Cout~3'
+        Info: 6: + IC(0.749 ns) + CELL(0.420 ns) = 4.183 ns; Loc. = LCCOMB_X56_Y44_N16; Fanout = 2; COMB Node = 'multiplier:comb_19|FourBitAdderSubtractor:comb_17|FA:comb_9|Cout~7'
+        Info: 7: + IC(0.263 ns) + CELL(0.271 ns) = 4.717 ns; Loc. = LCCOMB_X56_Y44_N26; Fanout = 2; COMB Node = 'multiplier:comb_19|FourBitAdderSubtractor:comb_17|FA:comb_10|Cout~7'
+        Info: 8: + IC(0.255 ns) + CELL(0.150 ns) = 5.122 ns; Loc. = LCCOMB_X56_Y44_N4; Fanout = 6; COMB Node = 'multiplier:comb_19|FourBitAdderSubtractor:comb_17|FA:comb_11|Cout~7'
+        Info: 9: + IC(0.269 ns) + CELL(0.271 ns) = 5.662 ns; Loc. = LCCOMB_X56_Y44_N22; Fanout = 3; COMB Node = 'multiplier:comb_19|FourBitAdderSubtractor:comb_17|fourMux:comb_281|o~104'
+        Info: 10: + IC(0.257 ns) + CELL(0.150 ns) = 6.069 ns; Loc. = LCCOMB_X56_Y44_N0; Fanout = 2; COMB Node = 'sixteenMux:comb_508|out'
+        Info: 11: + IC(0.256 ns) + CELL(0.150 ns) = 6.475 ns; Loc. = LCCOMB_X56_Y44_N28; Fanout = 1; COMB Node = 'dff1:comb_513|SR2:comb_6|andgate:comb_9|out~101'
+        Info: 12: + IC(0.248 ns) + CELL(0.150 ns) = 6.873 ns; Loc. = LCCOMB_X56_Y44_N6; Fanout = 1; REG Node = 'dff1:comb_513|SR2:comb_6|andgate:comb_9|out~102'
+        Info: Total cell delay = 2.700 ns ( 39.28 % )
+        Info: Total interconnect delay = 4.173 ns ( 60.72 % )
+    Info: - Smallest clock skew is -0.324 ns
+        Info: + Shortest clock path from clock "Clk" to destination register is 5.768 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.850 ns) = 0.850 ns; Loc. = PIN_A17; Fanout = 3; CLK Node = 'Clk'
+            Info: 2: + IC(1.308 ns) + CELL(0.150 ns) = 2.308 ns; Loc. = LCCOMB_X56_Y45_N18; Fanout = 3; COMB Node = 'FourBitReg:comb_509|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~97'
+            Info: 3: + IC(1.562 ns) + CELL(0.000 ns) = 3.870 ns; Loc. = CLKCTRL_G8; Fanout = 13; COMB Node = 'FourBitReg:comb_509|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~97clkctrl'
+            Info: 4: + IC(1.623 ns) + CELL(0.275 ns) = 5.768 ns; Loc. = LCCOMB_X56_Y44_N6; Fanout = 1; REG Node = 'dff1:comb_513|SR2:comb_6|andgate:comb_9|out~102'
+            Info: Total cell delay = 1.275 ns ( 22.10 % )
+            Info: Total interconnect delay = 4.493 ns ( 77.90 % )
+        Info: - Longest clock path from clock "Clk" to source register is 6.092 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.850 ns) = 0.850 ns; Loc. = PIN_A17; Fanout = 3; CLK Node = 'Clk'
+            Info: 2: + IC(1.313 ns) + CELL(0.393 ns) = 2.556 ns; Loc. = LCCOMB_X56_Y45_N6; Fanout = 1; COMB Node = 'FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~119'
+            Info: 3: + IC(1.523 ns) + CELL(0.000 ns) = 4.079 ns; Loc. = CLKCTRL_G11; Fanout = 24; COMB Node = 'FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~119clkctrl'
+            Info: 4: + IC(1.624 ns) + CELL(0.389 ns) = 6.092 ns; Loc. = LCCOMB_X56_Y46_N20; Fanout = 63; REG Node = 'FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112'
+            Info: Total cell delay = 1.632 ns ( 26.79 % )
+            Info: Total interconnect delay = 4.460 ns ( 73.21 % )
+    Info: + Micro clock to output delay of source is 0.000 ns
+    Info: + Micro setup delay of destination is 1.142 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Info: Clock "Write" has Internal fmax of 259.07 MHz between source register "FourBitReg:comb_509|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~17" and destination register "FourBitReg:comb_509|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~90" (period= 3.86 ns)
+    Info: + Longest register to register delay is 0.850 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCCOMB_X56_Y44_N2; Fanout = 1; REG Node = 'FourBitReg:comb_509|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~17'
+        Info: 2: + IC(0.700 ns) + CELL(0.150 ns) = 0.850 ns; Loc. = LCCOMB_X52_Y44_N28; Fanout = 8; REG Node = 'FourBitReg:comb_509|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~90'
+        Info: Total cell delay = 0.150 ns ( 17.65 % )
+        Info: Total interconnect delay = 0.700 ns ( 82.35 % )
+    Info: - Smallest clock skew is 0.029 ns
+        Info: + Shortest clock path from clock "Write" to destination register is 6.136 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.959 ns) = 0.959 ns; Loc. = PIN_H15; Fanout = 10; CLK Node = 'Write'
+            Info: 2: + IC(1.417 ns) + CELL(0.271 ns) = 2.647 ns; Loc. = LCCOMB_X56_Y45_N18; Fanout = 3; COMB Node = 'FourBitReg:comb_509|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~97'
+            Info: 3: + IC(1.562 ns) + CELL(0.000 ns) = 4.209 ns; Loc. = CLKCTRL_G8; Fanout = 13; COMB Node = 'FourBitReg:comb_509|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~97clkctrl'
+            Info: 4: + IC(1.538 ns) + CELL(0.389 ns) = 6.136 ns; Loc. = LCCOMB_X52_Y44_N28; Fanout = 8; REG Node = 'FourBitReg:comb_509|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~90'
+            Info: Total cell delay = 1.619 ns ( 26.39 % )
+            Info: Total interconnect delay = 4.517 ns ( 73.61 % )
+        Info: - Longest clock path from clock "Write" to source register is 6.107 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.959 ns) = 0.959 ns; Loc. = PIN_H15; Fanout = 10; CLK Node = 'Write'
+            Info: 2: + IC(1.417 ns) + CELL(0.271 ns) = 2.647 ns; Loc. = LCCOMB_X56_Y45_N18; Fanout = 3; COMB Node = 'FourBitReg:comb_509|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~97'
+            Info: 3: + IC(1.562 ns) + CELL(0.000 ns) = 4.209 ns; Loc. = CLKCTRL_G8; Fanout = 13; COMB Node = 'FourBitReg:comb_509|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~97clkctrl'
+            Info: 4: + IC(1.623 ns) + CELL(0.275 ns) = 6.107 ns; Loc. = LCCOMB_X56_Y44_N2; Fanout = 1; REG Node = 'FourBitReg:comb_509|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~17'
+            Info: Total cell delay = 1.505 ns ( 24.64 % )
+            Info: Total interconnect delay = 4.602 ns ( 75.36 % )
+    Info: + Micro clock to output delay of source is 0.000 ns
+    Info: + Micro setup delay of destination is 1.109 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Info: tsu for register "dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118" (data pin = "Clk", clock pin = "Clk") is 4.640 ns
+    Info: + Longest pin to register delay is 9.356 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.850 ns) = 0.850 ns; Loc. = PIN_A17; Fanout = 3; CLK Node = 'Clk'
+        Info: 2: + IC(5.156 ns) + CELL(0.150 ns) = 6.156 ns; Loc. = LCCOMB_X56_Y45_N26; Fanout = 1; COMB Node = 'dff1:comb_966|SR2:comb_6|andgate:comb_9|out~309'
+        Info: 3: + IC(0.988 ns) + CELL(0.420 ns) = 7.564 ns; Loc. = LCCOMB_X53_Y46_N18; Fanout = 2; COMB Node = 'dff1:comb_966|SR2:comb_6|andgate:comb_9|out~310'
+        Info: 4: + IC(0.000 ns) + CELL(1.261 ns) = 8.825 ns; Loc. = LCCOMB_X56_Y45_N14; Fanout = 2; COMB LOOP Node = 'dff1:comb_966|SR2:comb_6|andgate:comb_9|out~312'
+            Info: Loc. = LCCOMB_X56_Y45_N14; Node "dff1:comb_966|SR2:comb_6|andgate:comb_9|out~312"
+            Info: Loc. = LCCOMB_X56_Y45_N12; Node "dff1:comb_966|SR2:comb_6|andgate:comb_9|out~311"
+        Info: 5: + IC(0.256 ns) + CELL(0.275 ns) = 9.356 ns; Loc. = LCCOMB_X56_Y45_N20; Fanout = 1; REG Node = 'dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118'
+        Info: Total cell delay = 2.956 ns ( 31.59 % )
+        Info: Total interconnect delay = 6.400 ns ( 68.41 % )
+    Info: + Micro setup delay of destination is 0.864 ns
+    Info: - Shortest clock path from clock "Clk" to destination register is 5.580 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.850 ns) = 0.850 ns; Loc. = PIN_A17; Fanout = 3; CLK Node = 'Clk'
+        Info: 2: + IC(1.308 ns) + CELL(0.150 ns) = 2.308 ns; Loc. = LCCOMB_X56_Y45_N18; Fanout = 3; COMB Node = 'FourBitReg:comb_509|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~97'
+        Info: 3: + IC(1.562 ns) + CELL(0.000 ns) = 3.870 ns; Loc. = CLKCTRL_G8; Fanout = 13; COMB Node = 'FourBitReg:comb_509|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~97clkctrl'
+        Info: 4: + IC(1.560 ns) + CELL(0.150 ns) = 5.580 ns; Loc. = LCCOMB_X56_Y45_N20; Fanout = 1; REG Node = 'dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118'
+        Info: Total cell delay = 1.150 ns ( 20.61 % )
+        Info: Total interconnect delay = 4.430 ns ( 79.39 % )
+Info: tco from clock "Clk" to destination pin "g3" through register "FourBitReg:comb_5|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112" is 14.010 ns
+    Info: + Longest clock path from clock "Clk" to source register is 6.023 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.850 ns) = 0.850 ns; Loc. = PIN_A17; Fanout = 3; CLK Node = 'Clk'
+        Info: 2: + IC(1.313 ns) + CELL(0.393 ns) = 2.556 ns; Loc. = LCCOMB_X56_Y45_N6; Fanout = 1; COMB Node = 'FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~119'
+        Info: 3: + IC(1.523 ns) + CELL(0.000 ns) = 4.079 ns; Loc. = CLKCTRL_G11; Fanout = 24; COMB Node = 'FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~119clkctrl'
+        Info: 4: + IC(1.556 ns) + CELL(0.388 ns) = 6.023 ns; Loc. = LCCOMB_X54_Y46_N2; Fanout = 22; REG Node = 'FourBitReg:comb_5|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112'
+        Info: Total cell delay = 1.631 ns ( 27.08 % )
+        Info: Total interconnect delay = 4.392 ns ( 72.92 % )
+    Info: + Micro clock to output delay of source is 0.000 ns
+    Info: + Longest register to pin delay is 7.987 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCCOMB_X54_Y46_N2; Fanout = 22; REG Node = 'FourBitReg:comb_5|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112'
+        Info: 2: + IC(1.027 ns) + CELL(0.420 ns) = 1.447 ns; Loc. = LCCOMB_X57_Y45_N8; Fanout = 2; COMB Node = 'FourBitAdderSubtractor:comb_18|FA:comb_8|Cout~89'
+        Info: 3: + IC(0.263 ns) + CELL(0.420 ns) = 2.130 ns; Loc. = LCCOMB_X57_Y45_N2; Fanout = 2; COMB Node = 'FourBitAdderSubtractor:comb_18|FA:comb_9|Cout~7'
+        Info: 4: + IC(0.258 ns) + CELL(0.150 ns) = 2.538 ns; Loc. = LCCOMB_X57_Y45_N20; Fanout = 2; COMB Node = 'FourBitAdderSubtractor:comb_18|FA:comb_10|Cout~7'
+        Info: 5: + IC(0.264 ns) + CELL(0.275 ns) = 3.077 ns; Loc. = LCCOMB_X57_Y45_N14; Fanout = 7; COMB Node = 'FourBitAdderSubtractor:comb_18|FA:comb_11|Cout~7'
+        Info: 6: + IC(0.782 ns) + CELL(0.438 ns) = 4.297 ns; Loc. = LCCOMB_X53_Y45_N20; Fanout = 1; COMB Node = 'SignDisplay:comb_504|g3'
+        Info: 7: + IC(0.902 ns) + CELL(2.788 ns) = 7.987 ns; Loc. = PIN_C17; Fanout = 0; PIN Node = 'g3'
+        Info: Total cell delay = 4.491 ns ( 56.23 % )
+        Info: Total interconnect delay = 3.496 ns ( 43.77 % )
+Info: Longest tpd from source pin "Write" to destination pin "a4" is 7.873 ns
+    Info: 1: + IC(0.000 ns) + CELL(0.959 ns) = 0.959 ns; Loc. = PIN_H15; Fanout = 10; CLK Node = 'Write'
+    Info: 2: + IC(1.847 ns) + CELL(0.437 ns) = 3.243 ns; Loc. = LCCOMB_X52_Y44_N26; Fanout = 1; COMB Node = 'HexaDisplay:comb_510|a~279'
+    Info: 3: + IC(1.988 ns) + CELL(2.642 ns) = 7.873 ns; Loc. = PIN_G27; Fanout = 0; PIN Node = 'a4'
+    Info: Total cell delay = 4.038 ns ( 51.29 % )
+    Info: Total interconnect delay = 3.835 ns ( 48.71 % )
+Info: th for register "dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118" (data pin = "Clk", clock pin = "Write") is 2.012 ns
+    Info: + Longest clock path from clock "Write" to destination register is 5.919 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.959 ns) = 0.959 ns; Loc. = PIN_H15; Fanout = 10; CLK Node = 'Write'
+        Info: 2: + IC(1.417 ns) + CELL(0.271 ns) = 2.647 ns; Loc. = LCCOMB_X56_Y45_N18; Fanout = 3; COMB Node = 'FourBitReg:comb_509|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~97'
+        Info: 3: + IC(1.562 ns) + CELL(0.000 ns) = 4.209 ns; Loc. = CLKCTRL_G8; Fanout = 13; COMB Node = 'FourBitReg:comb_509|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~97clkctrl'
+        Info: 4: + IC(1.560 ns) + CELL(0.150 ns) = 5.919 ns; Loc. = LCCOMB_X56_Y45_N20; Fanout = 1; REG Node = 'dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118'
+        Info: Total cell delay = 1.380 ns ( 23.31 % )
+        Info: Total interconnect delay = 4.539 ns ( 76.69 % )
+    Info: + Micro hold delay of destination is 0.000 ns
+    Info: - Shortest pin to register delay is 3.907 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.850 ns) = 0.850 ns; Loc. = PIN_A17; Fanout = 3; CLK Node = 'Clk'
+        Info: 2: + IC(1.308 ns) + CELL(0.150 ns) = 2.308 ns; Loc. = LCCOMB_X56_Y45_N18; Fanout = 3; COMB Node = 'FourBitReg:comb_509|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~97'
+        Info: 3: + IC(0.000 ns) + CELL(1.068 ns) = 3.376 ns; Loc. = LCCOMB_X56_Y45_N14; Fanout = 2; COMB LOOP Node = 'dff1:comb_966|SR2:comb_6|andgate:comb_9|out~312'
+            Info: Loc. = LCCOMB_X56_Y45_N14; Node "dff1:comb_966|SR2:comb_6|andgate:comb_9|out~312"
+            Info: Loc. = LCCOMB_X56_Y45_N12; Node "dff1:comb_966|SR2:comb_6|andgate:comb_9|out~311"
+        Info: 4: + IC(0.256 ns) + CELL(0.275 ns) = 3.907 ns; Loc. = LCCOMB_X56_Y45_N20; Fanout = 1; REG Node = 'dff1:comb_966|SR2:comb_7|andgate:comb_9|out~118'
+        Info: Total cell delay = 2.343 ns ( 59.97 % )
+        Info: Total interconnect delay = 1.564 ns ( 40.03 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 43 warnings
+    Info: Peak virtual memory: 199 megabytes
+    Info: Processing ended: Mon May 17 11:02:13 2021
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
+
+

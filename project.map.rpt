@@ -1,0 +1,715 @@
+Analysis & Synthesis report for project
+Mon May 17 11:01:56 2021
+Quartus II Version 8.1 Build 163 10/28/2008 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. Logic Cells Representing Combinational Loops
+  8. General Register Statistics
+  9. Analysis & Synthesis Messages
+ 10. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2008 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                 ;
++------------------------------------+-----------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon May 17 11:01:56 2021   ;
+; Quartus II Version                 ; 8.1 Build 163 10/28/2008 SJ Web Edition ;
+; Revision Name                      ; project                                 ;
+; Top-level Entity Name              ; circuit                                 ;
+; Family                             ; Cyclone II                              ;
+; Total logic elements               ; 228                                     ;
+;     Total combinational functions  ; 228                                     ;
+;     Dedicated logic registers      ; 0                                       ;
+; Total registers                    ; 0                                       ;
+; Total pins                         ; 58                                      ;
+; Total virtual pins                 ; 0                                       ;
+; Total memory bits                  ; 0                                       ;
+; Embedded Multiplier 9-bit elements ; 0                                       ;
+; Total PLLs                         ; 0                                       ;
++------------------------------------+-----------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                            ;
++----------------------------------------------------------------+--------------------+--------------------+
+; Option                                                         ; Setting            ; Default Value      ;
++----------------------------------------------------------------+--------------------+--------------------+
+; Device                                                         ; EP2C70F896C6       ;                    ;
+; Top-level entity name                                          ; circuit            ; project            ;
+; Family name                                                    ; Cyclone II         ; Stratix II         ;
+; Use Generated Physical Constraints File                        ; Off                ;                    ;
+; Use smart compilation                                          ; Off                ; Off                ;
+; Restructure Multiplexers                                       ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                            ; Off                ; Off                ;
+; Preserve fewer node names                                      ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                      ; Off                ; Off                ;
+; Verilog Version                                                ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                   ; VHDL93             ; VHDL93             ;
+; State Machine Processing                                       ; Auto               ; Auto               ;
+; Safe State Machine                                             ; Off                ; Off                ;
+; Extract Verilog State Machines                                 ; On                 ; On                 ;
+; Extract VHDL State Machines                                    ; On                 ; On                 ;
+; Ignore Verilog initial constructs                              ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                     ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                 ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                        ; On                 ; On                 ;
+; Parallel Synthesis                                             ; Off                ; Off                ;
+; DSP Block Balancing                                            ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                             ; On                 ; On                 ;
+; Power-Up Don't Care                                            ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                   ; Off                ; Off                ;
+; Remove Duplicate Registers                                     ; On                 ; On                 ;
+; Ignore CARRY Buffers                                           ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                         ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                          ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                      ; Off                ; Off                ;
+; Ignore LCELL Buffers                                           ; Off                ; Off                ;
+; Ignore SOFT Buffers                                            ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                 ; Off                ; Off                ;
+; Optimization Technique                                         ; Balanced           ; Balanced           ;
+; Carry Chain Length                                             ; 70                 ; 70                 ;
+; Auto Carry Chains                                              ; On                 ; On                 ;
+; Auto Open-Drain Pins                                           ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                          ; Off                ; Off                ;
+; Perform gate-level register retiming                           ; Off                ; Off                ;
+; Allow register retiming to trade off Tsu/Tco with Fmax         ; On                 ; On                 ;
+; Auto ROM Replacement                                           ; On                 ; On                 ;
+; Auto RAM Replacement                                           ; On                 ; On                 ;
+; Auto Shift Register Replacement                                ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                  ; On                 ; On                 ;
+; Strict RAM Replacement                                         ; Off                ; Off                ;
+; Allow Synchronous Control Signals                              ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                         ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                              ; Off                ; Off                ;
+; Auto Resource Sharing                                          ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                             ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                             ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                  ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing            ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives              ; Off                ; Off                ;
+; Show Parameter Settings Tables in Synthesis Report             ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                             ; Off                ; Off                ;
+; Synchronization Register Chain Length                          ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                              ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report       ; 100                ; 100                ;
+; Number of Inverted Registers Reported in Synthesis Report      ; 100                ; 100                ;
+; Clock MUX Protection                                           ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                    ; Off                ; Off                ;
+; Block Design Naming                                            ; Auto               ; Auto               ;
+; SDC constraint protection                                      ; Off                ; Off                ;
+; Synthesis Effort                                               ; Auto               ; Auto               ;
+; Allows Asynchronous Clear Usage For Shift Register Replacement ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                             ; Medium             ; Medium             ;
++----------------------------------------------------------------+--------------------+--------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                        ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                    ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------------------------------+
+; AND1.v                           ; yes             ; User Verilog HDL File  ; C:/Users/96279/Desktop/jam3a/lab logic/project/project/AND1.v                   ;
+; dff1.v                           ; yes             ; User Verilog HDL File  ; C:/Users/96279/Desktop/jam3a/lab logic/project/project/dff1.v                   ;
+; lib.v                            ; yes             ; User Verilog HDL File  ; C:/Users/96279/Desktop/jam3a/lab logic/project/project/lib.v                    ;
+; fourMux.v                        ; yes             ; User Verilog HDL File  ; C:/Users/96279/Desktop/jam3a/lab logic/project/project/fourMux.v                ;
+; sixteenMux.v                     ; yes             ; User Verilog HDL File  ; C:/Users/96279/Desktop/jam3a/lab logic/project/project/sixteenMux.v             ;
+; FA.v                             ; yes             ; User Verilog HDL File  ; C:/Users/96279/Desktop/jam3a/lab logic/project/project/FA.v                     ;
+; FourBitAdderSubtractor.v         ; yes             ; User Verilog HDL File  ; C:/Users/96279/Desktop/jam3a/lab logic/project/project/FourBitAdderSubtractor.v ;
+; multiplier.v                     ; yes             ; User Verilog HDL File  ; C:/Users/96279/Desktop/jam3a/lab logic/project/project/multiplier.v             ;
+; ShiftRotate.v                    ; yes             ; User Verilog HDL File  ; C:/Users/96279/Desktop/jam3a/lab logic/project/project/ShiftRotate.v            ;
+; FourBitReg.v                     ; yes             ; User Verilog HDL File  ; C:/Users/96279/Desktop/jam3a/lab logic/project/project/FourBitReg.v             ;
+; HexaDisplay.v                    ; yes             ; User Verilog HDL File  ; C:/Users/96279/Desktop/jam3a/lab logic/project/project/HexaDisplay.v            ;
+; SignDisplay.v                    ; yes             ; User Verilog HDL File  ; C:/Users/96279/Desktop/jam3a/lab logic/project/project/SignDisplay.v            ;
+; circuit.v                        ; yes             ; User Verilog HDL File  ; C:/Users/96279/Desktop/jam3a/lab logic/project/project/circuit.v                ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                                   ;
++---------------------------------------------+-----------------------------------------------------------------+
+; Resource                                    ; Usage                                                           ;
++---------------------------------------------+-----------------------------------------------------------------+
+; Estimated Total logic elements              ; 228                                                             ;
+;                                             ;                                                                 ;
+; Total combinational functions               ; 228                                                             ;
+; Logic element usage by number of LUT inputs ;                                                                 ;
+;     -- 4 input functions                    ; 160                                                             ;
+;     -- 3 input functions                    ; 33                                                              ;
+;     -- <=2 input functions                  ; 35                                                              ;
+;                                             ;                                                                 ;
+; Logic elements by mode                      ;                                                                 ;
+;     -- normal mode                          ; 228                                                             ;
+;     -- arithmetic mode                      ; 0                                                               ;
+;                                             ;                                                                 ;
+; Total registers                             ; 0                                                               ;
+;     -- Dedicated logic registers            ; 0                                                               ;
+;     -- I/O registers                        ; 0                                                               ;
+;                                             ;                                                                 ;
+; I/O pins                                    ; 58                                                              ;
+; Maximum fan-out node                        ; FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~112 ;
+; Maximum fan-out                             ; 64                                                              ;
+; Total fan-out                               ; 845                                                             ;
+; Average fan-out                             ; 2.95                                                            ;
++---------------------------------------------+-----------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                             ;
++----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node             ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                         ; Library Name ;
++----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------+--------------+
+; |circuit                               ; 228 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 58   ; 0            ; |circuit                                                                    ; work         ;
+;    |FourBitAdderSubtractor:comb_18|    ; 14 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitAdderSubtractor:comb_18                                     ; work         ;
+;       |FA:comb_10|                     ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitAdderSubtractor:comb_18|FA:comb_10                          ; work         ;
+;       |FA:comb_11|                     ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitAdderSubtractor:comb_18|FA:comb_11                          ; work         ;
+;       |FA:comb_274|                    ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitAdderSubtractor:comb_18|FA:comb_274                         ; work         ;
+;       |FA:comb_8|                      ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitAdderSubtractor:comb_18|FA:comb_8                           ; work         ;
+;       |FA:comb_9|                      ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitAdderSubtractor:comb_18|FA:comb_9                           ; work         ;
+;       |fourMux:comb_281|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitAdderSubtractor:comb_18|fourMux:comb_281                    ; work         ;
+;       |fourMux:comb_282|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitAdderSubtractor:comb_18|fourMux:comb_282                    ; work         ;
+;       |fourMux:comb_283|               ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitAdderSubtractor:comb_18|fourMux:comb_283                    ; work         ;
+;       |xorgate:comb_5|                 ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitAdderSubtractor:comb_18|xorgate:comb_5                      ; work         ;
+;    |FourBitNor:comb_514|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitNor:comb_514                                                ; work         ;
+;    |FourBitReg:comb_4|                 ; 9 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_4                                                  ; work         ;
+;       |dff1:comb_5|                    ; 3 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_4|dff1:comb_5                                      ; work         ;
+;          |SR2:comb_6|                  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_4|dff1:comb_5|SR2:comb_6                           ; work         ;
+;             |andgate:comb_9|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_4|dff1:comb_5|SR2:comb_6|andgate:comb_9            ; work         ;
+;          |SR2:comb_7|                  ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_4|dff1:comb_5|SR2:comb_7                           ; work         ;
+;             |andgate:comb_9|           ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9            ; work         ;
+;       |dff1:comb_6|                    ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_4|dff1:comb_6                                      ; work         ;
+;          |SR2:comb_6|                  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_4|dff1:comb_6|SR2:comb_6                           ; work         ;
+;             |andgate:comb_9|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_4|dff1:comb_6|SR2:comb_6|andgate:comb_9            ; work         ;
+;          |SR2:comb_7|                  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_4|dff1:comb_6|SR2:comb_7                           ; work         ;
+;             |andgate:comb_9|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_4|dff1:comb_6|SR2:comb_7|andgate:comb_9            ; work         ;
+;       |dff1:comb_7|                    ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_4|dff1:comb_7                                      ; work         ;
+;          |SR2:comb_6|                  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_4|dff1:comb_7|SR2:comb_6                           ; work         ;
+;             |andgate:comb_9|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_4|dff1:comb_7|SR2:comb_6|andgate:comb_9            ; work         ;
+;          |SR2:comb_7|                  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_4|dff1:comb_7|SR2:comb_7                           ; work         ;
+;             |andgate:comb_9|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_4|dff1:comb_7|SR2:comb_7|andgate:comb_9            ; work         ;
+;       |dff1:comb_8|                    ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_4|dff1:comb_8                                      ; work         ;
+;          |SR2:comb_6|                  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_4|dff1:comb_8|SR2:comb_6                           ; work         ;
+;             |andgate:comb_9|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_4|dff1:comb_8|SR2:comb_6|andgate:comb_9            ; work         ;
+;          |SR2:comb_7|                  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_4|dff1:comb_8|SR2:comb_7                           ; work         ;
+;             |andgate:comb_9|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_4|dff1:comb_8|SR2:comb_7|andgate:comb_9            ; work         ;
+;    |FourBitReg:comb_509|               ; 9 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_509                                                ; work         ;
+;       |dff1:comb_5|                    ; 3 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_509|dff1:comb_5                                    ; work         ;
+;          |SR2:comb_6|                  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_509|dff1:comb_5|SR2:comb_6                         ; work         ;
+;             |andgate:comb_9|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_509|dff1:comb_5|SR2:comb_6|andgate:comb_9          ; work         ;
+;          |SR2:comb_7|                  ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_509|dff1:comb_5|SR2:comb_7                         ; work         ;
+;             |andgate:comb_9|           ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_509|dff1:comb_5|SR2:comb_7|andgate:comb_9          ; work         ;
+;       |dff1:comb_6|                    ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_509|dff1:comb_6                                    ; work         ;
+;          |SR2:comb_6|                  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_509|dff1:comb_6|SR2:comb_6                         ; work         ;
+;             |andgate:comb_9|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_509|dff1:comb_6|SR2:comb_6|andgate:comb_9          ; work         ;
+;          |SR2:comb_7|                  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_509|dff1:comb_6|SR2:comb_7                         ; work         ;
+;             |andgate:comb_9|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_509|dff1:comb_6|SR2:comb_7|andgate:comb_9          ; work         ;
+;       |dff1:comb_7|                    ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_509|dff1:comb_7                                    ; work         ;
+;          |SR2:comb_6|                  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_509|dff1:comb_7|SR2:comb_6                         ; work         ;
+;             |andgate:comb_9|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_509|dff1:comb_7|SR2:comb_6|andgate:comb_9          ; work         ;
+;          |SR2:comb_7|                  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_509|dff1:comb_7|SR2:comb_7                         ; work         ;
+;             |andgate:comb_9|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_509|dff1:comb_7|SR2:comb_7|andgate:comb_9          ; work         ;
+;       |dff1:comb_8|                    ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_509|dff1:comb_8                                    ; work         ;
+;          |SR2:comb_6|                  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_509|dff1:comb_8|SR2:comb_6                         ; work         ;
+;             |andgate:comb_9|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_509|dff1:comb_8|SR2:comb_6|andgate:comb_9          ; work         ;
+;          |SR2:comb_7|                  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_509|dff1:comb_8|SR2:comb_7                         ; work         ;
+;             |andgate:comb_9|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_509|dff1:comb_8|SR2:comb_7|andgate:comb_9          ; work         ;
+;    |FourBitReg:comb_5|                 ; 8 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_5                                                  ; work         ;
+;       |dff1:comb_5|                    ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_5|dff1:comb_5                                      ; work         ;
+;          |SR2:comb_6|                  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_5|dff1:comb_5|SR2:comb_6                           ; work         ;
+;             |andgate:comb_9|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_5|dff1:comb_5|SR2:comb_6|andgate:comb_9            ; work         ;
+;          |SR2:comb_7|                  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_5|dff1:comb_5|SR2:comb_7                           ; work         ;
+;             |andgate:comb_9|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_5|dff1:comb_5|SR2:comb_7|andgate:comb_9            ; work         ;
+;       |dff1:comb_6|                    ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_5|dff1:comb_6                                      ; work         ;
+;          |SR2:comb_6|                  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_5|dff1:comb_6|SR2:comb_6                           ; work         ;
+;             |andgate:comb_9|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_5|dff1:comb_6|SR2:comb_6|andgate:comb_9            ; work         ;
+;          |SR2:comb_7|                  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_5|dff1:comb_6|SR2:comb_7                           ; work         ;
+;             |andgate:comb_9|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_5|dff1:comb_6|SR2:comb_7|andgate:comb_9            ; work         ;
+;       |dff1:comb_7|                    ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_5|dff1:comb_7                                      ; work         ;
+;          |SR2:comb_6|                  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_5|dff1:comb_7|SR2:comb_6                           ; work         ;
+;             |andgate:comb_9|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_5|dff1:comb_7|SR2:comb_6|andgate:comb_9            ; work         ;
+;          |SR2:comb_7|                  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_5|dff1:comb_7|SR2:comb_7                           ; work         ;
+;             |andgate:comb_9|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_5|dff1:comb_7|SR2:comb_7|andgate:comb_9            ; work         ;
+;       |dff1:comb_8|                    ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_5|dff1:comb_8                                      ; work         ;
+;          |SR2:comb_6|                  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_5|dff1:comb_8|SR2:comb_6                           ; work         ;
+;             |andgate:comb_9|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_5|dff1:comb_8|SR2:comb_6|andgate:comb_9            ; work         ;
+;          |SR2:comb_7|                  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_5|dff1:comb_8|SR2:comb_7                           ; work         ;
+;             |andgate:comb_9|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_5|dff1:comb_8|SR2:comb_7|andgate:comb_9            ; work         ;
+;    |FourBitReg:comb_6|                 ; 8 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_6                                                  ; work         ;
+;       |dff1:comb_5|                    ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_6|dff1:comb_5                                      ; work         ;
+;          |SR2:comb_6|                  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_6|dff1:comb_5|SR2:comb_6                           ; work         ;
+;             |andgate:comb_9|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_6|dff1:comb_5|SR2:comb_6|andgate:comb_9            ; work         ;
+;          |SR2:comb_7|                  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_6|dff1:comb_5|SR2:comb_7                           ; work         ;
+;             |andgate:comb_9|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9            ; work         ;
+;       |dff1:comb_6|                    ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_6|dff1:comb_6                                      ; work         ;
+;          |SR2:comb_6|                  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_6|dff1:comb_6|SR2:comb_6                           ; work         ;
+;             |andgate:comb_9|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_6|dff1:comb_6|SR2:comb_6|andgate:comb_9            ; work         ;
+;          |SR2:comb_7|                  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_6|dff1:comb_6|SR2:comb_7                           ; work         ;
+;             |andgate:comb_9|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_6|dff1:comb_6|SR2:comb_7|andgate:comb_9            ; work         ;
+;       |dff1:comb_7|                    ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_6|dff1:comb_7                                      ; work         ;
+;          |SR2:comb_6|                  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_6|dff1:comb_7|SR2:comb_6                           ; work         ;
+;             |andgate:comb_9|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_6|dff1:comb_7|SR2:comb_6|andgate:comb_9            ; work         ;
+;          |SR2:comb_7|                  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_6|dff1:comb_7|SR2:comb_7                           ; work         ;
+;             |andgate:comb_9|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_6|dff1:comb_7|SR2:comb_7|andgate:comb_9            ; work         ;
+;       |dff1:comb_8|                    ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_6|dff1:comb_8                                      ; work         ;
+;          |SR2:comb_6|                  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_6|dff1:comb_8|SR2:comb_6                           ; work         ;
+;             |andgate:comb_9|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_6|dff1:comb_8|SR2:comb_6|andgate:comb_9            ; work         ;
+;          |SR2:comb_7|                  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_6|dff1:comb_8|SR2:comb_7                           ; work         ;
+;             |andgate:comb_9|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|FourBitReg:comb_6|dff1:comb_8|SR2:comb_7|andgate:comb_9            ; work         ;
+;    |HexaDisplay:comb_510|              ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|HexaDisplay:comb_510                                               ; work         ;
+;    |HexaDisplay:comb_7|                ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|HexaDisplay:comb_7                                                 ; work         ;
+;    |HexaDisplay:comb_8|                ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|HexaDisplay:comb_8                                                 ; work         ;
+;    |HexaDisplay:comb_9|                ; 18 (18)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|HexaDisplay:comb_9                                                 ; work         ;
+;    |ShiftRotate:comb_16|               ; 3 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|ShiftRotate:comb_16                                                ; work         ;
+;       |fourMux:comb_37|                ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|ShiftRotate:comb_16|fourMux:comb_37                                ; work         ;
+;       |fourMux:comb_38|                ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|ShiftRotate:comb_16|fourMux:comb_38                                ; work         ;
+;       |fourMux:comb_39|                ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|ShiftRotate:comb_16|fourMux:comb_39                                ; work         ;
+;    |ShiftRotate:comb_17|               ; 3 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|ShiftRotate:comb_17                                                ; work         ;
+;       |fourMux:comb_37|                ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|ShiftRotate:comb_17|fourMux:comb_37                                ; work         ;
+;       |fourMux:comb_38|                ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|ShiftRotate:comb_17|fourMux:comb_38                                ; work         ;
+;       |fourMux:comb_39|                ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|ShiftRotate:comb_17|fourMux:comb_39                                ; work         ;
+;    |SignDisplay:comb_504|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|SignDisplay:comb_504                                               ; work         ;
+;    |dff1:comb_502|                     ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|dff1:comb_502                                                      ; work         ;
+;       |SR2:comb_6|                     ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|dff1:comb_502|SR2:comb_6                                           ; work         ;
+;          |andgate:comb_9|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|dff1:comb_502|SR2:comb_6|andgate:comb_9                            ; work         ;
+;       |SR2:comb_7|                     ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|dff1:comb_502|SR2:comb_7                                           ; work         ;
+;          |andgate:comb_9|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|dff1:comb_502|SR2:comb_7|andgate:comb_9                            ; work         ;
+;    |dff1:comb_513|                     ; 3 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|dff1:comb_513                                                      ; work         ;
+;       |SR2:comb_6|                     ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|dff1:comb_513|SR2:comb_6                                           ; work         ;
+;          |andgate:comb_9|              ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|dff1:comb_513|SR2:comb_6|andgate:comb_9                            ; work         ;
+;       |SR2:comb_7|                     ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|dff1:comb_513|SR2:comb_7                                           ; work         ;
+;          |andgate:comb_9|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|dff1:comb_513|SR2:comb_7|andgate:comb_9                            ; work         ;
+;    |dff1:comb_966|                     ; 6 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|dff1:comb_966                                                      ; work         ;
+;       |SR2:comb_6|                     ; 5 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|dff1:comb_966|SR2:comb_6                                           ; work         ;
+;          |andgate:comb_9|              ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|dff1:comb_966|SR2:comb_6|andgate:comb_9                            ; work         ;
+;       |SR2:comb_7|                     ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|dff1:comb_966|SR2:comb_7                                           ; work         ;
+;          |andgate:comb_9|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|dff1:comb_966|SR2:comb_7|andgate:comb_9                            ; work         ;
+;    |multiplier:comb_19|                ; 46 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|multiplier:comb_19                                                 ; work         ;
+;       |FourBitAdderSubtractor:comb_12| ; 18 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|multiplier:comb_19|FourBitAdderSubtractor:comb_12                  ; work         ;
+;          |FA:comb_10|                  ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|multiplier:comb_19|FourBitAdderSubtractor:comb_12|FA:comb_10       ; work         ;
+;          |FA:comb_11|                  ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|multiplier:comb_19|FourBitAdderSubtractor:comb_12|FA:comb_11       ; work         ;
+;          |FA:comb_8|                   ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|multiplier:comb_19|FourBitAdderSubtractor:comb_12|FA:comb_8        ; work         ;
+;          |FA:comb_9|                   ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|multiplier:comb_19|FourBitAdderSubtractor:comb_12|FA:comb_9        ; work         ;
+;          |fourMux:comb_281|            ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|multiplier:comb_19|FourBitAdderSubtractor:comb_12|fourMux:comb_281 ; work         ;
+;          |fourMux:comb_282|            ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|multiplier:comb_19|FourBitAdderSubtractor:comb_12|fourMux:comb_282 ; work         ;
+;          |fourMux:comb_283|            ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|multiplier:comb_19|FourBitAdderSubtractor:comb_12|fourMux:comb_283 ; work         ;
+;          |xorgate:comb_5|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|multiplier:comb_19|FourBitAdderSubtractor:comb_12|xorgate:comb_5   ; work         ;
+;          |xorgate:comb_6|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|multiplier:comb_19|FourBitAdderSubtractor:comb_12|xorgate:comb_6   ; work         ;
+;       |FourBitAdderSubtractor:comb_17| ; 17 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|multiplier:comb_19|FourBitAdderSubtractor:comb_17                  ; work         ;
+;          |FA:comb_10|                  ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|multiplier:comb_19|FourBitAdderSubtractor:comb_17|FA:comb_10       ; work         ;
+;          |FA:comb_11|                  ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|multiplier:comb_19|FourBitAdderSubtractor:comb_17|FA:comb_11       ; work         ;
+;          |FA:comb_8|                   ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|multiplier:comb_19|FourBitAdderSubtractor:comb_17|FA:comb_8        ; work         ;
+;          |FA:comb_9|                   ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|multiplier:comb_19|FourBitAdderSubtractor:comb_17|FA:comb_9        ; work         ;
+;          |fourMux:comb_281|            ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|multiplier:comb_19|FourBitAdderSubtractor:comb_17|fourMux:comb_281 ; work         ;
+;          |fourMux:comb_282|            ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|multiplier:comb_19|FourBitAdderSubtractor:comb_17|fourMux:comb_282 ; work         ;
+;          |fourMux:comb_283|            ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|multiplier:comb_19|FourBitAdderSubtractor:comb_17|fourMux:comb_283 ; work         ;
+;          |xorgate:comb_5|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|multiplier:comb_19|FourBitAdderSubtractor:comb_17|xorgate:comb_5   ; work         ;
+;          |xorgate:comb_6|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|multiplier:comb_19|FourBitAdderSubtractor:comb_17|xorgate:comb_6   ; work         ;
+;          |xorgate:comb_7|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|multiplier:comb_19|FourBitAdderSubtractor:comb_17|xorgate:comb_7   ; work         ;
+;       |FourBitAdderSubtractor:comb_22| ; 6 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|multiplier:comb_19|FourBitAdderSubtractor:comb_22                  ; work         ;
+;          |FA:comb_10|                  ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|multiplier:comb_19|FourBitAdderSubtractor:comb_22|FA:comb_10       ; work         ;
+;          |FA:comb_11|                  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|multiplier:comb_19|FourBitAdderSubtractor:comb_22|FA:comb_11       ; work         ;
+;          |FA:comb_9|                   ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|multiplier:comb_19|FourBitAdderSubtractor:comb_22|FA:comb_9        ; work         ;
+;       |andgate:comb_18|                ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|multiplier:comb_19|andgate:comb_18                                 ; work         ;
+;       |andgate:comb_19|                ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|multiplier:comb_19|andgate:comb_19                                 ; work         ;
+;       |andgate:comb_21|                ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|multiplier:comb_19|andgate:comb_21                                 ; work         ;
+;       |andgate:comb_5|                 ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|multiplier:comb_19|andgate:comb_5                                  ; work         ;
+;       |andgate:comb_6|                 ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|multiplier:comb_19|andgate:comb_6                                  ; work         ;
+;    |sixteenMux:comb_20|                ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|sixteenMux:comb_20                                                 ; work         ;
+;    |sixteenMux:comb_505|               ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|sixteenMux:comb_505                                                ; work         ;
+;    |sixteenMux:comb_506|               ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|sixteenMux:comb_506                                                ; work         ;
+;    |sixteenMux:comb_507|               ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|sixteenMux:comb_507                                                ; work         ;
+;    |sixteenMux:comb_508|               ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|sixteenMux:comb_508                                                ; work         ;
+;    |xnorgate1:comb_14|                 ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|xnorgate1:comb_14                                                  ; work         ;
+;       |xnorgate:comb_5|                ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |circuit|xnorgate1:comb_14|xnorgate:comb_5                                  ; work         ;
++----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------+
+; Logic Cells Representing Combinational Loops                         ;
++-----------------------------------------------------------------+----+
+; Logic Cell Name                                                 ;    ;
++-----------------------------------------------------------------+----+
+; FourBitReg:comb_509|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~1 ;    ;
+; FourBitReg:comb_509|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~1 ;    ;
+; FourBitReg:comb_509|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~1 ;    ;
+; FourBitReg:comb_509|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~1 ;    ;
+; dff1:comb_502|SR2:comb_7|andgate:comb_9|out~1                   ;    ;
+; dff1:comb_513|SR2:comb_7|andgate:comb_9|out~1                   ;    ;
+; dff1:comb_966|SR2:comb_7|andgate:comb_9|out~1                   ;    ;
+; FourBitReg:comb_4|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~1   ;    ;
+; FourBitReg:comb_4|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~1   ;    ;
+; FourBitReg:comb_4|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~1   ;    ;
+; FourBitReg:comb_4|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~1   ;    ;
+; FourBitReg:comb_5|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~1   ;    ;
+; FourBitReg:comb_5|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~1   ;    ;
+; FourBitReg:comb_5|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~1   ;    ;
+; FourBitReg:comb_5|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~1   ;    ;
+; FourBitReg:comb_6|dff1:comb_5|SR2:comb_7|andgate:comb_9|out~1   ;    ;
+; FourBitReg:comb_6|dff1:comb_6|SR2:comb_7|andgate:comb_9|out~1   ;    ;
+; FourBitReg:comb_6|dff1:comb_7|SR2:comb_7|andgate:comb_9|out~1   ;    ;
+; FourBitReg:comb_6|dff1:comb_8|SR2:comb_7|andgate:comb_9|out~1   ;    ;
+; FourBitReg:comb_509|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~1 ;    ;
+; FourBitReg:comb_509|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~1 ;    ;
+; FourBitReg:comb_509|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~1 ;    ;
+; FourBitReg:comb_509|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~1 ;    ;
+; dff1:comb_502|SR2:comb_6|andgate:comb_9|out~1                   ;    ;
+; dff1:comb_513|SR2:comb_6|andgate:comb_9|out~1                   ;    ;
+; dff1:comb_966|SR2:comb_6|andgate:comb_9|out~1                   ;    ;
+; FourBitReg:comb_4|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~1   ;    ;
+; FourBitReg:comb_4|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~1   ;    ;
+; FourBitReg:comb_4|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~1   ;    ;
+; FourBitReg:comb_4|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~1   ;    ;
+; FourBitReg:comb_5|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~1   ;    ;
+; FourBitReg:comb_5|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~1   ;    ;
+; FourBitReg:comb_5|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~1   ;    ;
+; FourBitReg:comb_5|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~1   ;    ;
+; FourBitReg:comb_6|dff1:comb_5|SR2:comb_6|andgate:comb_9|out~1   ;    ;
+; FourBitReg:comb_6|dff1:comb_6|SR2:comb_6|andgate:comb_9|out~1   ;    ;
+; FourBitReg:comb_6|dff1:comb_7|SR2:comb_6|andgate:comb_9|out~1   ;    ;
+; FourBitReg:comb_6|dff1:comb_8|SR2:comb_6|andgate:comb_9|out~1   ;    ;
+; Number of logic cells representing combinational loops          ; 38 ;
++-----------------------------------------------------------------+----+
+Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 8.1 Build 163 10/28/2008 SJ Web Edition
+    Info: Processing started: Mon May 17 11:01:52 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off project -c project
+Warning: Ignored assignments for entity "project" -- entity does not exist in design
+    Warning: Assignment of entity set_global_assignment -name LL_ROOT_REGION ON -entity project -section_id "Root Region" is ignored
+    Warning: Assignment of entity set_global_assignment -name LL_MEMBER_STATE LOCKED -entity project -section_id "Root Region" is ignored
+Warning: Can't analyze file -- file C:/Users/96279/Desktop/jam3a/lab logic/Project Files/dff1.v is missing
+Warning: Can't analyze file -- file C:/Users/96279/Desktop/jam3a/lab logic/Project Files/lib.v is missing
+Info: Found 5 design units, including 5 entities, in source file AND1.v
+    Info: Found entity 1: AND1
+    Info: Found entity 2: OR1
+    Info: Found entity 3: xorgate1
+    Info: Found entity 4: xnorgate1
+    Info: Found entity 5: notA
+Info: Found 2 design units, including 2 entities, in source file dff1.v
+    Info: Found entity 1: SR2
+    Info: Found entity 2: dff1
+Info: Found 12 design units, including 12 entities, in source file lib.v
+    Info: Found entity 1: andgate
+    Info: Found entity 2: andgate3
+    Info: Found entity 3: nandgate
+    Info: Found entity 4: nandgate3
+    Info: Found entity 5: orgate
+    Info: Found entity 6: orgate3
+    Info: Found entity 7: norgate
+    Info: Found entity 8: norgate3
+    Info: Found entity 9: xorgate
+    Info: Found entity 10: xnorgate
+    Info: Found entity 11: invgate
+    Info: Found entity 12: FourBitNor
+Info: Found 1 design units, including 1 entities, in source file twoMux.v
+    Info: Found entity 1: twoMux
+Info: Found 1 design units, including 1 entities, in source file fourMux.v
+    Info: Found entity 1: fourMux
+Info: Found 1 design units, including 1 entities, in source file sixteenMux.v
+    Info: Found entity 1: sixteenMux
+Info: Found 1 design units, including 1 entities, in source file FA.v
+    Info: Found entity 1: FA
+Info: Found 1 design units, including 1 entities, in source file FourBitAdderSubtractor.v
+    Info: Found entity 1: FourBitAdderSubtractor
+Info: Found 1 design units, including 1 entities, in source file multiplier.v
+    Info: Found entity 1: multiplier
+Info: Found 1 design units, including 1 entities, in source file ShiftRotate.v
+    Info: Found entity 1: ShiftRotate
+Info: Found 1 design units, including 1 entities, in source file FourBitReg.v
+    Info: Found entity 1: FourBitReg
+Info: Found 1 design units, including 1 entities, in source file HexaDisplay.v
+    Info: Found entity 1: HexaDisplay
+Info: Found 1 design units, including 1 entities, in source file SignDisplay.v
+    Info: Found entity 1: SignDisplay
+Info: Found 1 design units, including 1 entities, in source file circuit.v
+    Info: Found entity 1: circuit
+Warning (10236): Verilog HDL Implicit Net warning at dff1.v(5): created implicit net for "notR"
+Warning (10236): Verilog HDL Implicit Net warning at dff1.v(6): created implicit net for "w1"
+Warning (10236): Verilog HDL Implicit Net warning at dff1.v(7): created implicit net for "w2"
+Warning (10236): Verilog HDL Implicit Net warning at dff1.v(8): created implicit net for "w3"
+Warning (10236): Verilog HDL Implicit Net warning at dff1.v(18): created implicit net for "w1"
+Warning (10236): Verilog HDL Implicit Net warning at dff1.v(19): created implicit net for "w2"
+Warning (10236): Verilog HDL Implicit Net warning at dff1.v(20): created implicit net for "w4"
+Warning (10236): Verilog HDL Implicit Net warning at dff1.v(20): created implicit net for "w5"
+Warning (10236): Verilog HDL Implicit Net warning at dff1.v(21): created implicit net for "Qnot"
+Warning (10236): Verilog HDL Implicit Net warning at multiplier.v(30): created implicit net for "S"
+Critical Warning (10846): Verilog HDL Instantiation warning at AND1.v(5): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at AND1.v(6): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at AND1.v(7): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at AND1.v(8): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at AND1.v(15): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at AND1.v(16): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at AND1.v(17): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at AND1.v(18): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at AND1.v(25): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at AND1.v(26): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at AND1.v(27): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at AND1.v(28): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at AND1.v(35): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at AND1.v(36): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at AND1.v(37): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at AND1.v(38): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at AND1.v(45): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at AND1.v(46): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at AND1.v(47): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at AND1.v(48): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at dff1.v(5): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at dff1.v(6): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at dff1.v(7): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at dff1.v(8): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at dff1.v(9): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at dff1.v(10): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at dff1.v(18): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at dff1.v(19): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at dff1.v(20): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at dff1.v(21): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at FourBitAdderSubtractor.v(6): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at FourBitAdderSubtractor.v(7): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at FourBitAdderSubtractor.v(8): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at FourBitAdderSubtractor.v(9): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at FourBitAdderSubtractor.v(11): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at FourBitAdderSubtractor.v(12): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at FourBitAdderSubtractor.v(13): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at FourBitAdderSubtractor.v(14): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at FourBitAdderSubtractor.v(16): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at FourBitAdderSubtractor.v(17): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at FourBitAdderSubtractor.v(18): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at FourBitAdderSubtractor.v(19): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at FourBitAdderSubtractor.v(21): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at FourBitAdderSubtractor.v(22): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at FourBitAdderSubtractor.v(23): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at FourBitAdderSubtractor.v(24): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at FourBitAdderSubtractor.v(26): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at FourBitAdderSubtractor.v(27): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at FourBitAdderSubtractor.v(28): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at FourBitAdderSubtractor.v(29): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at multiplier.v(6): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at multiplier.v(7): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at multiplier.v(8): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at multiplier.v(9): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at multiplier.v(11): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at multiplier.v(12): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at multiplier.v(13): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at multiplier.v(14): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at multiplier.v(16): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at multiplier.v(18): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at multiplier.v(19): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at multiplier.v(20): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at multiplier.v(21): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at multiplier.v(23): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at multiplier.v(25): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at multiplier.v(26): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at multiplier.v(27): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at multiplier.v(28): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at multiplier.v(30): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at ShiftRotate.v(6): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at ShiftRotate.v(7): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at ShiftRotate.v(8): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at ShiftRotate.v(9): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at FourBitReg.v(6): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at FourBitReg.v(7): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at FourBitReg.v(8): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at FourBitReg.v(9): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at FourBitReg.v(10): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(7): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(8): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(9): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(11): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(12): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(13): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(15): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(16): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(17): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(18): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(19): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(20): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(21): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(22): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(24): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(25): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(28): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(29): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(30): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(31): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(33): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(34): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(35): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(36): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(37): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(38): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(40): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(41): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(42): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(45): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(46): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(47): instance has no name
+Critical Warning (10846): Verilog HDL Instantiation warning at circuit.v(48): instance has no name
+Info: Elaborating entity "circuit" for the top level hierarchy
+Info: Elaborating entity "FourBitReg" for hierarchy "FourBitReg:comb_4"
+Info: Elaborating entity "andgate" for hierarchy "FourBitReg:comb_4|andgate:comb_4"
+Info: Elaborating entity "dff1" for hierarchy "FourBitReg:comb_4|dff1:comb_5"
+Info: Elaborating entity "invgate" for hierarchy "FourBitReg:comb_4|dff1:comb_5|invgate:comb_4"
+Info: Elaborating entity "SR2" for hierarchy "FourBitReg:comb_4|dff1:comb_5|SR2:comb_6"
+Info: Elaborating entity "nandgate" for hierarchy "FourBitReg:comb_4|dff1:comb_5|SR2:comb_6|nandgate:comb_5"
+Info: Elaborating entity "HexaDisplay" for hierarchy "HexaDisplay:comb_7"
+Info: Elaborating entity "AND1" for hierarchy "AND1:comb_11"
+Info: Elaborating entity "OR1" for hierarchy "OR1:comb_12"
+Info: Elaborating entity "orgate" for hierarchy "OR1:comb_12|orgate:comb_4"
+Info: Elaborating entity "xorgate1" for hierarchy "xorgate1:comb_13"
+Info: Elaborating entity "xorgate" for hierarchy "xorgate1:comb_13|xorgate:comb_4"
+Info: Elaborating entity "xnorgate1" for hierarchy "xnorgate1:comb_14"
+Info: Elaborating entity "xnorgate" for hierarchy "xnorgate1:comb_14|xnorgate:comb_4"
+Info: Elaborating entity "notA" for hierarchy "notA:comb_15"
+Info: Elaborating entity "ShiftRotate" for hierarchy "ShiftRotate:comb_16"
+Info: Elaborating entity "fourMux" for hierarchy "ShiftRotate:comb_16|fourMux:comb_4"
+Info: Elaborating entity "FourBitAdderSubtractor" for hierarchy "FourBitAdderSubtractor:comb_18"
+Info: Elaborating entity "FA" for hierarchy "FourBitAdderSubtractor:comb_18|FA:comb_8"
+Info: Elaborating entity "multiplier" for hierarchy "multiplier:comb_19"
+Info: Elaborating entity "sixteenMux" for hierarchy "sixteenMux:comb_20"
+Info: Elaborating entity "SignDisplay" for hierarchy "SignDisplay:comb_504"
+Info: Elaborating entity "FourBitNor" for hierarchy "FourBitNor:comb_511"
+Warning (12020): Port "ordered port 4" on the entity instantiation of "comb_515" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 5" on the entity instantiation of "comb_515" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 6" on the entity instantiation of "comb_515" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 7" on the entity instantiation of "comb_515" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 8" on the entity instantiation of "comb_515" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 9" on the entity instantiation of "comb_515" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 10" on the entity instantiation of "comb_515" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 11" on the entity instantiation of "comb_515" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 12" on the entity instantiation of "comb_515" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 13" on the entity instantiation of "comb_515" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 14" on the entity instantiation of "comb_515" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 15" on the entity instantiation of "comb_515" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 16" on the entity instantiation of "comb_515" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 19" on the entity instantiation of "comb_515" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 4" on the entity instantiation of "comb_20" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 5" on the entity instantiation of "comb_20" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 6" on the entity instantiation of "comb_20" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 7" on the entity instantiation of "comb_20" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 8" on the entity instantiation of "comb_20" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 9" on the entity instantiation of "comb_20" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 10" on the entity instantiation of "comb_20" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 11" on the entity instantiation of "comb_20" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 12" on the entity instantiation of "comb_20" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 13" on the entity instantiation of "comb_20" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 14" on the entity instantiation of "comb_20" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 15" on the entity instantiation of "comb_20" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 17" on the entity instantiation of "comb_20" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 18" on the entity instantiation of "comb_20" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 19" on the entity instantiation of "comb_20" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 0" on the entity instantiation of "comb_207" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 1" on the entity instantiation of "comb_207" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 0" on the entity instantiation of "comb_142" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 1" on the entity instantiation of "comb_142" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 0" on the entity instantiation of "comb_77" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 1" on the entity instantiation of "comb_77" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 0" on the entity instantiation of "comb_12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 1" on the entity instantiation of "comb_12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 0" on the entity instantiation of "comb_207" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 1" on the entity instantiation of "comb_207" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 0" on the entity instantiation of "comb_142" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 1" on the entity instantiation of "comb_142" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 0" on the entity instantiation of "comb_77" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 1" on the entity instantiation of "comb_77" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 0" on the entity instantiation of "comb_12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 1" on the entity instantiation of "comb_12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 0" on the entity instantiation of "comb_207" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 1" on the entity instantiation of "comb_207" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 0" on the entity instantiation of "comb_142" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 1" on the entity instantiation of "comb_142" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 0" on the entity instantiation of "comb_77" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 1" on the entity instantiation of "comb_77" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 0" on the entity instantiation of "comb_12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 1" on the entity instantiation of "comb_12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 0" on the entity instantiation of "comb_207" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 1" on the entity instantiation of "comb_207" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 0" on the entity instantiation of "comb_142" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 1" on the entity instantiation of "comb_142" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 0" on the entity instantiation of "comb_77" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 1" on the entity instantiation of "comb_77" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 0" on the entity instantiation of "comb_12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 1" on the entity instantiation of "comb_12" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 5" on the entity instantiation of "comb_39" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 4" on the entity instantiation of "comb_4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 5" on the entity instantiation of "comb_39" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning (12020): Port "ordered port 4" on the entity instantiation of "comb_4" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored.
+Warning: Output pins are stuck at VCC or GND
+    Warning (13410): Pin "a3" is stuck at VCC
+    Warning (13410): Pin "b3" is stuck at VCC
+    Warning (13410): Pin "c3" is stuck at VCC
+    Warning (13410): Pin "d3" is stuck at VCC
+    Warning (13410): Pin "e3" is stuck at VCC
+    Warning (13410): Pin "f3" is stuck at VCC
+Warning: Ignored assignments for entity "project" -- entity does not exist in design
+    Warning: Assignment of entity set_global_assignment -name LL_ROOT_REGION ON -entity project -section_id "Root Region" is ignored
+    Warning: Assignment of entity set_global_assignment -name LL_MEMBER_STATE LOCKED -entity project -section_id "Root Region" is ignored
+Info: Generated suppressed messages file C:/Users/96279/Desktop/jam3a/lab logic/project/project/project.map.smsg
+Info: Implemented 286 device resources after synthesis - the final resource count might be different
+    Info: Implemented 16 input pins
+    Info: Implemented 42 output pins
+    Info: Implemented 228 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 201 warnings
+    Info: Peak virtual memory: 231 megabytes
+    Info: Processing ended: Mon May 17 11:01:56 2021
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:04
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/96279/Desktop/jam3a/lab logic/project/project/project.map.smsg.
+
+
